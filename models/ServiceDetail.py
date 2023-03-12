@@ -14,8 +14,8 @@ class ServiceDetail:
     
     
 if __name__ == "__main__":
-    obj = ServiceDetail("service1", "192.127.1.1")
+    obj = ServiceDetail("REST", "192.127.1.1")
     print(obj.__repr__())
 
-    obj2 = ServiceDetail("service2", "mqtt.eclipse.org", ["topic1", "topic2"])
+    obj2 = ServiceDetail("MQTT", "mqtt.eclipse.org", ["topic1", "topic2"])
     print(obj2.__repr__())
