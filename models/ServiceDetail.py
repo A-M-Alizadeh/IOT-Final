@@ -6,6 +6,12 @@ class ServiceDetail:
             pass
         else:
             self.topic = topics
+
+    def update(self, newServiceDetail):
+        self.serviceType = newServiceDetail.serviceType
+        self.serviceIp = newServiceDetail.serviceIp
+        if hasattr(newServiceDetail, 'topic'):
+            self.topic = newServiceDetail.topic
     
     def __repr__(self):
         if hasattr(self, 'topic'):
@@ -13,9 +19,12 @@ class ServiceDetail:
         return f"ServiceDetail -> {self.serviceType} :: {self.serviceIp}"
     
     
-if __name__ == "__main__":
-    obj = ServiceDetail("REST", "192.127.1.1")
-    print(obj.__repr__())
+    
+    
+    
+# if __name__ == "__main__":
+#     obj = ServiceDetail("REST", "192.127.1.1")
+#     print(obj.__repr__())
 
-    obj2 = ServiceDetail("MQTT", "mqtt.eclipse.org", ["topic1", "topic2"])
-    print(obj2.__repr__())
+#     obj2 = ServiceDetail("MQTT", "mqtt.eclipse.org", ["topic1", "topic2"])
+#     print(obj2.__repr__())
