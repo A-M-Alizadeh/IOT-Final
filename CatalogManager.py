@@ -2,16 +2,22 @@ from models.User import User
 from models.House import House
 from models.Device import Device
 from models.ServiceDetail import ServiceDetail
-import uuid
+import datetime
 
 
 class CatalogManager:
-    def __init__(self):
+    def __init__(self, projectOwner: str, projectName: str):
+        self.projectOwner= projectOwner
+        self.projectName= projectName
+        self.lastUpdate = datetime.datetime.now()
         self.users = []
         self.houses = []
         self.devices = []
         self.services = []
 
+    def __repr__(self):
+        return f"CatalogManager -> {self.projectOwner} :: {self.projectName} - {self.lastUpdate} - {self.users} - {self.houses} - {self.devices} - {self.services}"
+    
     def add_user(self, user: User):
         self.users.append(user)
     
@@ -51,7 +57,7 @@ class CatalogManager:
 
 if __name__ == "__main__":
     # print("CatalogManager")
-    cm = CatalogManager()
+    cm = CatalogManager("Ali","HomeAutomation")
 
     d1 = Device("device1", ["temp"], ["service1"], [ServiceDetail("REST", "192.127.1.1"),
                                                     ServiceDetail("MQTT", "mqtt.eclipse.org", ["topic1", "topic2"])])
@@ -69,7 +75,7 @@ if __name__ == "__main__":
     cm.add_device(d2)
 
     print("\n--------------------------------\n")
-    # print(uuid.uuid1())
+    print(cm.__repr__())
     # print(cm.getDevices())
     print("\n--------------------------------\n")
     # print(cm.getHouses())
