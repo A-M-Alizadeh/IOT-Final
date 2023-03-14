@@ -1,11 +1,10 @@
 import json
 
-class CatalogReader:
+class CatalogManager:
     
     #----------------- Constructor -----------------#
     def __init__(self, catalogPath: str):
-        cat = json.load(open(catalogPath))
-        self.catalog = cat
+        self.catalog = json.load(open(catalogPath))
 
     #----------------- Getters -----------------#
 
@@ -85,7 +84,7 @@ class CatalogReader:
     
 
 if __name__ == "__main__":
-    cr = CatalogReader("Catalogue.json")
+    cr = CatalogManager("Catalogue.json")
     # print(cr.getCatalog())
     # print(cr.getUsers())
     # print(cr.getHouses())
