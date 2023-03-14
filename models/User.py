@@ -12,6 +12,13 @@ class User:
         self.surename = surename
         self.username = username
         self.houses = houses
+    
+    def getFull(self):
+        return self
+    
+    def __str__(self):
+        return f"User -> {self.userId} :: {self.chatId} - {self.name} - {self.surename} - {self.username} - {self.houses}"
+        
 
     def update(self, newHouse):
         self.name = newHouse.name
@@ -25,8 +32,8 @@ class User:
     def setHouses(self, houses): #: List[House]
         self.houses = houses
 
-    def __repr__(self):
-        return f"User -> {self.userId} :: {self.chatId} - {self.name} - {self.surename} - {self.username} - {self.houses}"
+    # def __repr__(self):
+    #     return f"User -> {self.userId} :: {self.chatId} - {self.name} - {self.surename} - {self.username} - {self.houses}"
     
     def userUpdate(self,user):
         if isinstance(user, User) :

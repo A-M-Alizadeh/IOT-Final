@@ -7,6 +7,12 @@ class Device:
         self.availableServices = availableServices
         self.serVicesDetailes = serVicesDetailes
         self.lastUpdate = datetime.datetime.now()
+    
+    def getFull(self):
+        return self
+    
+    def __str__(self):
+        return f"Device -> {self.deviceName} :: {self.meatureType} - {self.availableServices} - {self.serVicesDetailes} - {self.lastUpdate}"
 
     def update(self, newDevice):
         self.deviceName = newDevice.deviceName
@@ -15,8 +21,8 @@ class Device:
         self.serVicesDetailes = newDevice.serVicesDetailes
         self.lastUpdate = datetime.datetime.now()
 
-    def __repr__(self):
-        return f"Device -> {self.deviceName} :: {self.meatureType} - {self.availableServices} - {self.serVicesDetailes} - {self.lastUpdate}"
+    # def __repr__(self):
+    #     return f"Device -> {self.deviceName} :: {self.meatureType} - {self.availableServices} - {self.serVicesDetailes} - {self.lastUpdate}"
     
     # def save_to_db(self):
     #     pass
