@@ -3,6 +3,7 @@ from models.House import House
 from models.Device import Device
 from models.ServiceDetail import ServiceDetail
 import datetime
+import json
 
 
 class CatalogManager:
@@ -15,9 +16,15 @@ class CatalogManager:
         self.devices = []
         self.services = []
 
-    def __repr__(self):
+    def get(self): #create an object and return it
+        return self
+
+    def getFull(self):
+        return self
+
+    def __str__(self):
         return f"CatalogManager -> {self.projectOwner} :: {self.projectName} - {self.lastUpdate} - {self.users} - {self.houses} - {self.devices} - {self.services}"
-    
+
     def add_user(self, user: User):
         self.users.append(user)
     
@@ -54,6 +61,16 @@ class CatalogManager:
                 return house
         return None
     
+    def findHouseDevices(self, houseId):
+        house = self.findHouse(houseId)
+        if house is not None:
+            return house.getDevices()
+        return None
+    
+    def saveJson(self):
+        with open('data.json', 'w') as outfile:
+            json.dump(self.getFull(), outfile)
+    
 
 if __name__ == "__main__":
     # print("CatalogManager")
@@ -74,13 +91,17 @@ if __name__ == "__main__":
     cm.add_device(d1)
     cm.add_device(d2)
 
+    cm.saveJson()
     print("\n--------------------------------\n")
-    print(cm.__repr__())
+    # print(cm.getFull())
     # print(cm.getDevices())
     print("\n--------------------------------\n")
     # print(cm.getHouses())
     print("\n--------------------------------\n")
     # print(cm.getUsers())
     print("\n--------------------------------\n")
-    # print(cm.findHouse(input("user ID ?")))
+    # for usr in cm.getUsers():
+    #     print(usr.getFull())
+    # print(cm.findUser(input("user ID ?")))
+    # print(cm.findHouseDevices(input("house ID ?")))
 
