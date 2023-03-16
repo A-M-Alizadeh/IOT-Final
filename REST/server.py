@@ -1,6 +1,14 @@
 import cherrypy
 import os
 import sys
+import Othermodule
+import json
+
+import sys
+# caution: path[0] is reserved for script path (or '' in REPL)
+sys.path.insert(1, '/Users/graybook/Documents/Polito/Projects/IOT/Final')
+from DAO.CatalogManager import CatalogManager
+
 
 
 # cherrypy.tools.json_in() post method
@@ -10,23 +18,23 @@ class Home:
     exposed = True
 
     def GET(self, *uri, **params):
-        # print(os.path.abspath(os.getcwd()))
-        # file = open('index.html', 'r')
-        # print(file.read())
         try:
             return open(os.path.abspath(os.getcwd())+'/REST/public/html/index.html')
             # return open('index.html')
         except:
             cherrypy.response.status = 500
-            return os.path.dirname(os.path.abspath(__file__)) + os.path.sep
-            # return "500 file not found !!!"
+            # return os.path.dirname(os.path.abspath(__file__)) + os.path.sep
+            return "500 file not found !!!"
 
 class Server:
     exposed = True
-    # cm = CatalogManager()
 
     def GET(self, *uri, **params):
-        return "GET Hello World!"
+        # return Othermodule.foonction()
+        cm = CatalogManager("./DAO/Catalogue.json")
+        return json.dumps(cm.getCatalog())
+        # return str(cm.getCatalog())
+    
     def POST(self, *uri, **params):
         return "POST Hello World!"
     
