@@ -81,10 +81,9 @@ class CatalogManager:
     def saveJson(self):
         with open("date.json", "w") as outfile:
             json.dump(self.catalog, outfile)
-    
 
-if __name__ == "__main__":
-    cr = CatalogManager("Catalogue.json")
+# if __name__ == "__main__":
+#     cr = CatalogManager("./DAO/Catalogue.json")
     # print(cr.getCatalog())
     # print(cr.getUsers())
     # print(cr.getHouses())
