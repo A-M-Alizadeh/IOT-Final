@@ -1,20 +1,25 @@
 # from Device import Device
 # from ServiceDetail import ServiceDetail
 import uuid
+import json
 # from typing import List
 
 class House:
     def __init__(self, usersIDs: list[int], devicesList = []): #List[Device]):
-        self.houseId = uuid.uuid1()
+        self.houseId = str(uuid.uuid1())
         self.usersIDs = usersIDs
         self.devicesList = devicesList
 
     def getFull(self):
         return self
     
-    def __str__(self):
-        return f"House -> {self.houseId} :: {self.usersIDs} - {self.devicesList}"
-
+    # def __str__(self):
+    #     return f"House -> {self.houseId} :: {self.usersIDs} - {self.devicesList}"
+    # def __repr__(self):
+    #     return f"House -> {self.houseId} :: {self.usersIDs} - {self.devicesList}"
+    # def __json__(self):
+    #     return json.dumps(self, default=lambda o: o.__dict__, sort_keys=True, indent=2)
+        
     def update(self, newHouse):
         self.usersIDs = newHouse.usersIDs
         self.devicesList = newHouse.devicesList
@@ -28,9 +33,7 @@ class House:
     def getDevices(self):
         return self.devicesList
         
-    
-    # def __repr__(self):
-    #     return f"House -> {self.houseId} :: {self.usersIDs} - {self.devicesList}"
+
     
 # if __name__ == "__main__":
 #     d1 = Device("device1", ["temp"], ["service1"], [ServiceDetail("REST", "192.127.1.1"),

@@ -1,3 +1,4 @@
+import json
 class ServiceDetail:
     def __init__(self, serviceType: str, serviceIp: str, topics= None): #List[str]:
         self.serviceType = serviceType
@@ -10,21 +11,27 @@ class ServiceDetail:
     def getFull(self):
         return self
     
-    def __str__(self):
-        return f"ServiceDetail -> {self.serviceType} :: {self.serviceIp} - {self.topic}"
+    # def __json__(self):
+    #     return json.dumps(self, default=lambda o: o.__dict__, sort_keys=True, indent=2)
+    # def __repr__(self):
+    #     if hasattr(self, 'topic'):
+    #         return f"ServiceDetail -> {self.serviceType} :: {self.serviceIp} - {self.topic}"
+    #     return f"ServiceDetail -> {self.serviceType} :: {self.serviceIp}"
+    
+    # def __str__(self): #suggest
+    #     if hasattr(self, 'topic'):
+    #         return f"ServiceDetail -> {self.serviceType} :: {self.serviceIp} - {self.topic}"
+    #     return f"ServiceDetail -> {self.serviceType} :: {self.serviceIp}"
 
+
+        
     def update(self, newServiceDetail):
         self.serviceType = newServiceDetail.serviceType
         self.serviceIp = newServiceDetail.serviceIp
         if hasattr(newServiceDetail, 'topic'):
             self.topic = newServiceDetail.topic
     
-    # def __repr__(self):
-    #     if hasattr(self, 'topic'):
-    #       return f"ServiceDetail -> {self.serviceType} :: {self.serviceIp} - {self.topic}"
-    #     return f"ServiceDetail -> {self.serviceType} :: {self.serviceIp}"
-    
-    
+
     
     
     

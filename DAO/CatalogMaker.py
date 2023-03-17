@@ -1,30 +1,39 @@
-from ..models.User import User
-from ..models.House import House
-from ..models.Device import Device
-from ..models.ServiceDetail import ServiceDetail
 import datetime
 import json
+import sys
+
+sys.path.insert(1, '/Users/graybook/Documents/Polito/Projects/IOT/Final')
+from models.User import User
+from models.House import House
+from models.Device import Device
+from models.ServiceDetail import ServiceDetail
 
 
-class CatalogManager:
+
+class CatalogMaker:
     def __init__(self, projectOwner: str, projectName: str):
         self.projectOwner= projectOwner
         self.projectName= projectName
-        self.lastUpdate = datetime.datetime.now()
+        self.lastUpdate = datetime.datetime.now().strftime("%d/%m/%Y %H:%M:%S")
         self.users = []
         self.houses = []
         self.devices = []
         self.services = []
 
-    def get(self): #create an object and return it
-        return self
+    # def __json__(self):
+    #     return json.dumps(self, default=lambda o: o.__dict__, sort_keys=False, indent=4)
+    
+    # def __repr__(self):
+    #     return f"CatalogMaker -> {self.projectOwner} :: {self.projectName} - {self.lastUpdate} - {self.users} - {self.houses} - {self.devices} - {self.services}"
+    
+    # def __str__(self):
+    #     return f"CatalogMaker -> {self.projectOwner} :: {self.projectName} - {self.lastUpdate} - {self.users} - {self.houses} - {self.devices} - {self.services}"
 
-    def getFull(self):
-        return self
+# --------------------------------------------   update methods
 
-    def __str__(self):
-        return f"CatalogManager -> {self.projectOwner} :: {self.projectName} - {self.lastUpdate} - {self.users} - {self.houses} - {self.devices} - {self.services}"
 
+
+# --------------------------------------------   add methods
     def add_user(self, user: User):
         self.users.append(user)
     
@@ -36,7 +45,13 @@ class CatalogManager:
     
     def add_service(self, service: ServiceDetail):
         self.services.append(service)
-    
+# --------------------------------------------    get methods
+    def getFull(self):
+        return self
+
+    def Json(self):
+        return self.__json__()
+
     def getDevices(self):
         return self.devices
     
@@ -48,7 +63,7 @@ class CatalogManager:
     
     def getServices(self):
         return self.services
-    
+# --------------------------------------------    find methods
     def findUser(self, userId):
         for user in self.users:
             if str(user.userId) == userId:
@@ -66,15 +81,23 @@ class CatalogManager:
         if house is not None:
             return house.getDevices()
         return None
+
+#--------------------------------------------    save methods
+
+    def toJson(self):
+        return json.dumps(self, default=lambda o: o.__dict__, sort_keys=False, indent=4)
     
     def saveJson(self):
-        with open('data.json', 'w') as outfile:
-            json.dump(self.getFull(), outfile)
+        with open('./DAO/data.json', 'w') as outfile:
+            outfile.truncate()
+            outfile.write(self.toJson())
+            outfile.close() # .__dict__ or .Json()
     
+# -----------------------------------------------------------------------------------------------
 
 if __name__ == "__main__":
-    # print("CatalogManager")
-    cm = CatalogManager("Ali","HomeAutomation")
+    # print("CatalogMaker")
+    cm = CatalogMaker("Ali","HomeAutomation")
 
     d1 = Device("device1", ["temp"], ["service1"], [ServiceDetail("REST", "192.127.1.1"),
                                                     ServiceDetail("MQTT", "mqtt.eclipse.org", ["topic1", "topic2"])])
@@ -93,6 +116,9 @@ if __name__ == "__main__":
 
     cm.saveJson()
     print("\n--------------------------------\n")
+    # gson = json.dumps(cm, default=lambda o: o.__dict__, indent=4)
+    # print(gson)
+    # print(cm.__dict__())
     # print(cm.getFull())
     # print(cm.getDevices())
     print("\n--------------------------------\n")

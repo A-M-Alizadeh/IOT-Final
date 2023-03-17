@@ -8,6 +8,7 @@ import sys
 # caution: path[0] is reserved for script path (or '' in REPL)
 sys.path.insert(1, '/Users/graybook/Documents/Polito/Projects/IOT/Final')
 from DAO.CatalogManager import CatalogManager
+from DAO.CatalogMaker import CatalogMaker
 
 
 
@@ -30,10 +31,11 @@ class Server:
     exposed = True
 
     def GET(self, *uri, **params):
-        # return Othermodule.foonction()
-        cm = CatalogManager("./DAO/Catalogue.json")
-        return json.dumps(cm.getCatalog())
-        # return str(cm.getCatalog())
+        # cm = CatalogManager("./DAO/Catalogue.json")
+        # return json.dumps(cm.getCatalog())
+        with open('./DAO/data.json') as user_file:
+            file_contents = user_file.read()
+        return json.dumps(json.loads(file_contents))
     
     def POST(self, *uri, **params):
         return "POST Hello World!"

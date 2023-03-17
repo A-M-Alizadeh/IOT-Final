@@ -1,0 +1,167 @@
+{
+    "projectOwner": "Ali",
+    "projectName": "HomeAutomation",
+    "lastUpdate": "16/03/2023 23:16:59",
+    "users": [
+        {
+            "userId": "44e81738-c448-11ed-838d-ae52d2a871b2",
+            "chatId": "44e81760-c448-11ed-838d-ae52d2a871b2",
+            "name": "Ali",
+            "surename": "Alizadeh",
+            "username": "gray",
+            "houses": [
+                {
+                    "HouseId": "44e815e4-c448-11ed-838d-ae52d2a871b2"
+                },
+                {
+                    "HouseId": "44e816de-c448-11ed-838d-ae52d2a871b2"
+                }
+            ]
+        }
+    ],
+    "houses": [
+        {
+            "houseId": "44e815e4-c448-11ed-838d-ae52d2a871b2",
+            "usersIDs": [
+                1
+            ],
+            "devicesList": [
+                {
+                    "deviceName": "device1",
+                    "meatureType": [
+                        "temp"
+                    ],
+                    "availableServices": [
+                        "service1"
+                    ],
+                    "serVicesDetailes": [
+                        {
+                            "serviceType": "REST",
+                            "serviceIp": "192.127.1.1"
+                        },
+                        {
+                            "serviceType": "MQTT",
+                            "serviceIp": "mqtt.eclipse.org",
+                            "topic": [
+                                "topic1",
+                                "topic2"
+                            ]
+                        }
+                    ],
+                    "lastUpdate": "16/03/2023 23:16:59"
+                },
+                {
+                    "deviceName": "device2",
+                    "meatureType": [
+                        "temp",
+                        "Humi"
+                    ],
+                    "availableServices": [
+                        "service1"
+                    ],
+                    "serVicesDetailes": [
+                        {
+                            "serviceType": "REST",
+                            "serviceIp": "192.127.5.2:8080"
+                        }
+                    ],
+                    "lastUpdate": "16/03/2023 23:16:59"
+                }
+            ]
+        },
+        {
+            "houseId": "44e816de-c448-11ed-838d-ae52d2a871b2",
+            "usersIDs": [
+                1,
+                2
+            ],
+            "devicesList": [
+                {
+                    "deviceName": "device1",
+                    "meatureType": [
+                        "temp"
+                    ],
+                    "availableServices": [
+                        "service1"
+                    ],
+                    "serVicesDetailes": [
+                        {
+                            "serviceType": "REST",
+                            "serviceIp": "192.127.1.1"
+                        },
+                        {
+                            "serviceType": "MQTT",
+                            "serviceIp": "mqtt.eclipse.org",
+                            "topic": [
+                                "topic1",
+                                "topic2"
+                            ]
+                        }
+                    ],
+                    "lastUpdate": "16/03/2023 23:16:59"
+                },
+                {
+                    "deviceName": "device2",
+                    "meatureType": [
+                        "temp",
+                        "Humi"
+                    ],
+                    "availableServices": [
+                        "service1"
+                    ],
+                    "serVicesDetailes": [
+                        {
+                            "serviceType": "REST",
+                            "serviceIp": "192.127.5.2:8080"
+                        }
+                    ],
+                    "lastUpdate": "16/03/2023 23:16:59"
+                }
+            ]
+        }
+    ],
+    "devices": [
+        {
+            "deviceName": "device1",
+            "meatureType": [
+                "temp"
+            ],
+            "availableServices": [
+                "service1"
+            ],
+            "serVicesDetailes": [
+                {
+                    "serviceType": "REST",
+                    "serviceIp": "192.127.1.1"
+                },
+                {
+                    "serviceType": "MQTT",
+                    "serviceIp": "mqtt.eclipse.org",
+                    "topic": [
+                        "topic1",
+                        "topic2"
+                    ]
+                }
+            ],
+            "lastUpdate": "16/03/2023 23:16:59"
+        },
+        {
+            "deviceName": "device2",
+            "meatureType": [
+                "temp",
+                "Humi"
+            ],
+            "availableServices": [
+                "service1"
+            ],
+            "serVicesDetailes": [
+                {
+                    "serviceType": "REST",
+                    "serviceIp": "192.127.5.2:8080"
+                }
+            ],
+            "lastUpdate": "16/03/2023 23:16:59"
+        }
+    ],
+    "services": []
+}

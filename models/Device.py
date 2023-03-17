@@ -1,18 +1,23 @@
 # from ServiceDetail import ServiceDetail
 import datetime
+import json
 class Device:
     def __init__(self, deviceName: str, meatureType : list[str], availableServices: list[str], serVicesDetailes: list[any]): #List[ServiceDEtails]
         self.deviceName = deviceName
         self.meatureType = meatureType
         self.availableServices = availableServices
         self.serVicesDetailes = serVicesDetailes
-        self.lastUpdate = datetime.datetime.now()
+        self.lastUpdate = datetime.datetime.now().strftime("%d/%m/%Y %H:%M:%S")
     
     def getFull(self):
         return self
     
-    def __str__(self):
-        return f"Device -> {self.deviceName} :: {self.meatureType} - {self.availableServices} - {self.serVicesDetailes} - {self.lastUpdate}"
+    # def __str__(self):
+    #     return f"Device -> {self.deviceName} :: {self.meatureType} - {self.availableServices} - {self.serVicesDetailes} - {self.lastUpdate}"
+    # def __repr__(self):
+    #     return f"Device -> {self.deviceName} :: {self.meatureType} - {self.availableServices} - {self.serVicesDetailes} - {self.lastUpdate}"
+    # def __json__(self):
+    #     return json.dumps(self, default=lambda o: o.__dict__, sort_keys=False, indent=4)
 
     def update(self, newDevice):
         self.deviceName = newDevice.deviceName
@@ -21,9 +26,7 @@ class Device:
         self.serVicesDetailes = newDevice.serVicesDetailes
         self.lastUpdate = datetime.datetime.now()
 
-    # def __repr__(self):
-    #     return f"Device -> {self.deviceName} :: {self.meatureType} - {self.availableServices} - {self.serVicesDetailes} - {self.lastUpdate}"
-    
+
     # def save_to_db(self):
     #     pass
     
