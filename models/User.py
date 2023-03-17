@@ -1,4 +1,5 @@
 import uuid
+import json
 # from House import House
 # from Device import Device
 # from ServiceDetail import ServiceDetail
@@ -6,8 +7,8 @@ import uuid
 
 class User:
     def __init__(self, name: str, surename: str, username: str, houses = []):
-        self.userId = uuid.uuid1()
-        self.chatId = uuid.uuid1()
+        self.userId = str(uuid.uuid1())
+        self.chatId = str(uuid.uuid1())
         self.name = name
         self.surename = surename
         self.username = username
@@ -16,10 +17,13 @@ class User:
     def getFull(self):
         return self
     
-    def __str__(self):
-        return f"User -> {self.userId} :: {self.chatId} - {self.name} - {self.surename} - {self.username} - {self.houses}"
-        
-
+    # def __str__(self):
+    #     return f"User -> {self.userId} :: {self.chatId} - {self.name} - {self.surename} - {self.username} - {self.houses}"
+    # def __json__(self):
+    #     return json.dumps(self, default=lambda o: o.__dict__, sort_keys=True, indent=2)
+    # def __repr__(self):
+    #     return f"User -> {self.userId} :: {self.chatId} - {self.name} - {self.surename} - {self.username} - {self.houses}"
+    
     def update(self, newHouse):
         self.name = newHouse.name
         self.surename = newHouse.surename
@@ -32,9 +36,6 @@ class User:
     def setHouses(self, houses): #: List[House]
         self.houses = houses
 
-    # def __repr__(self):
-    #     return f"User -> {self.userId} :: {self.chatId} - {self.name} - {self.surename} - {self.username} - {self.houses}"
-    
     def userUpdate(self,user):
         if isinstance(user, User) :
             self.name = user.name
@@ -46,12 +47,8 @@ class User:
     
     def getHouses(self):
         return self.houses
-        
+    
 
-    # def save_to_db(self):
-    #     print("saving User: {self.}")
-    #     # db.session.add(self)
-    #     # db.session.commit()
 
 # if __name__ == '__main__':
 #     d1 = Device("device1", ["temp"], ["service1"], [ServiceDetail("REST", "192.127.1.1"),
