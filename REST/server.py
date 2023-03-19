@@ -1,7 +1,6 @@
 import cherrypy
 import os
 import sys
-import Othermodule
 import json
 
 import sys
