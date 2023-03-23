@@ -4,7 +4,6 @@ import sys
 import json
 
 import sys
-# caution: path[0] is reserved for script path (or '' in REPL)
 sys.path.insert(1, '/Users/graybook/Documents/Polito/Projects/IOT/Final')
 from DAO.CatalogManager import CatalogManager
 from DAO.CatalogMaker import CatalogMaker

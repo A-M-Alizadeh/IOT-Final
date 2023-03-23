@@ -1,127 +1,64 @@
 {
     "projectOwner": "Ali",
     "projectName": "HomeAutomation",
-    "lastUpdate": "16/03/2023 23:16:59",
+    "lastUpdate": "22/03/2023 23:24:41",
     "users": [
         {
-            "userId": "44e81738-c448-11ed-838d-ae52d2a871b2",
-            "chatId": "44e81760-c448-11ed-838d-ae52d2a871b2",
+            "userId": "56f00988-c900-11ed-beef-ae52d2a871b1",
+            "chatId": "56f009b0-c900-11ed-beef-ae52d2a871b1",
             "name": "Ali",
             "surename": "Alizadeh",
             "username": "gray",
-            "houses": [
-                {
-                    "HouseId": "44e815e4-c448-11ed-838d-ae52d2a871b2"
-                },
-                {
-                    "HouseId": "44e816de-c448-11ed-838d-ae52d2a871b2"
-                }
+            "housesIds": [
+                "56f00a78-c900-11ed-beef-ae52d2a871b1"
+            ]
+        },
+        {
+            "userId": "56f009e2-c900-11ed-beef-ae52d2a871b1",
+            "chatId": "56f00a00-c900-11ed-beef-ae52d2a871b1",
+            "name": "Alex",
+            "surename": "XYZ",
+            "username": "alex",
+            "housesIds": [
+                "56f00aaa-c900-11ed-beef-ae52d2a871b1"
+            ]
+        },
+        {
+            "userId": "56f00a28-c900-11ed-beef-ae52d2a871b1",
+            "chatId": "56f00a46-c900-11ed-beef-ae52d2a871b1",
+            "name": "John",
+            "surename": "Doe",
+            "username": "john",
+            "housesIds": [
+                "56f00aaa-c900-11ed-beef-ae52d2a871b1"
             ]
         }
     ],
     "houses": [
         {
-            "houseId": "44e815e4-c448-11ed-838d-ae52d2a871b2",
+            "houseId": "56f00a78-c900-11ed-beef-ae52d2a871b1",
             "usersIDs": [
-                1
+                "56f00988-c900-11ed-beef-ae52d2a871b1"
             ],
-            "devicesList": [
-                {
-                    "deviceName": "device1",
-                    "meatureType": [
-                        "temp"
-                    ],
-                    "availableServices": [
-                        "service1"
-                    ],
-                    "serVicesDetailes": [
-                        {
-                            "serviceType": "REST",
-                            "serviceIp": "192.127.1.1"
-                        },
-                        {
-                            "serviceType": "MQTT",
-                            "serviceIp": "mqtt.eclipse.org",
-                            "topic": [
-                                "topic1",
-                                "topic2"
-                            ]
-                        }
-                    ],
-                    "lastUpdate": "16/03/2023 23:16:59"
-                },
-                {
-                    "deviceName": "device2",
-                    "meatureType": [
-                        "temp",
-                        "Humi"
-                    ],
-                    "availableServices": [
-                        "service1"
-                    ],
-                    "serVicesDetailes": [
-                        {
-                            "serviceType": "REST",
-                            "serviceIp": "192.127.5.2:8080"
-                        }
-                    ],
-                    "lastUpdate": "16/03/2023 23:16:59"
-                }
+            "devicesIds": [
+                "56f0082a-c900-11ed-beef-ae52d2a871b1"
             ]
         },
         {
-            "houseId": "44e816de-c448-11ed-838d-ae52d2a871b2",
+            "houseId": "56f00aaa-c900-11ed-beef-ae52d2a871b1",
             "usersIDs": [
-                1,
-                2
+                "56f009e2-c900-11ed-beef-ae52d2a871b1",
+                "56f00a28-c900-11ed-beef-ae52d2a871b1"
             ],
-            "devicesList": [
-                {
-                    "deviceName": "device1",
-                    "meatureType": [
-                        "temp"
-                    ],
-                    "availableServices": [
-                        "service1"
-                    ],
-                    "serVicesDetailes": [
-                        {
-                            "serviceType": "REST",
-                            "serviceIp": "192.127.1.1"
-                        },
-                        {
-                            "serviceType": "MQTT",
-                            "serviceIp": "mqtt.eclipse.org",
-                            "topic": [
-                                "topic1",
-                                "topic2"
-                            ]
-                        }
-                    ],
-                    "lastUpdate": "16/03/2023 23:16:59"
-                },
-                {
-                    "deviceName": "device2",
-                    "meatureType": [
-                        "temp",
-                        "Humi"
-                    ],
-                    "availableServices": [
-                        "service1"
-                    ],
-                    "serVicesDetailes": [
-                        {
-                            "serviceType": "REST",
-                            "serviceIp": "192.127.5.2:8080"
-                        }
-                    ],
-                    "lastUpdate": "16/03/2023 23:16:59"
-                }
+            "devicesIds": [
+                "56f008c0-c900-11ed-beef-ae52d2a871b1",
+                "56f0092e-c900-11ed-beef-ae52d2a871b1"
             ]
         }
     ],
     "devices": [
         {
+            "deviceId": "56f0082a-c900-11ed-beef-ae52d2a871b1",
             "deviceName": "device1",
             "meatureType": [
                 "temp"
@@ -129,23 +66,14 @@
             "availableServices": [
                 "service1"
             ],
-            "serVicesDetailes": [
-                {
-                    "serviceType": "REST",
-                    "serviceIp": "192.127.1.1"
-                },
-                {
-                    "serviceType": "MQTT",
-                    "serviceIp": "mqtt.eclipse.org",
-                    "topic": [
-                        "topic1",
-                        "topic2"
-                    ]
-                }
+            "servicesDetailes": [
+                "56f0069a-c900-11ed-beef-ae52d2a871b1",
+                "56f007b2-c900-11ed-beef-ae52d2a871b1"
             ],
-            "lastUpdate": "16/03/2023 23:16:59"
+            "lastUpdate": "22/03/2023 23:24:41"
         },
         {
+            "deviceId": "56f008c0-c900-11ed-beef-ae52d2a871b1",
             "deviceName": "device2",
             "meatureType": [
                 "temp",
@@ -154,14 +82,50 @@
             "availableServices": [
                 "service1"
             ],
-            "serVicesDetailes": [
-                {
-                    "serviceType": "REST",
-                    "serviceIp": "192.127.5.2:8080"
-                }
+            "servicesDetailes": [
+                "56f007ee-c900-11ed-beef-ae52d2a871b1"
             ],
-            "lastUpdate": "16/03/2023 23:16:59"
+            "lastUpdate": "22/03/2023 23:24:41"
+        },
+        {
+            "deviceId": "56f0092e-c900-11ed-beef-ae52d2a871b1",
+            "deviceName": "device3",
+            "meatureType": [
+                "accell",
+                "speed"
+            ],
+            "availableServices": [
+                "service3"
+            ],
+            "servicesDetailes": [
+                "56f007ee-c900-11ed-beef-ae52d2a871b1"
+            ],
+            "lastUpdate": "22/03/2023 23:24:41"
         }
     ],
-    "services": []
+    "services": [
+        {
+            "detailId": "56f0069a-c900-11ed-beef-ae52d2a871b1",
+            "serviceType": "REST",
+            "serviceIp": "172.0.0.1"
+        },
+        {
+            "detailId": "56f007b2-c900-11ed-beef-ae52d2a871b1",
+            "serviceType": "MQTT",
+            "serviceIp": "mqtt.eclipse.org",
+            "topics": [
+                "topic1",
+                "topic2"
+            ]
+        },
+        {
+            "detailId": "56f007ee-c900-11ed-beef-ae52d2a871b1",
+            "serviceType": "MQTT",
+            "serviceIp": "mqtt.mosquitto.org",
+            "topics": [
+                "iot/humidity",
+                "iot/temperature"
+            ]
+        }
+    ]
 }
