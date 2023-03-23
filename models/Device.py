@@ -1,37 +1,46 @@
-# from ServiceDetail import ServiceDetail
+# import ServiceDetail
 import datetime
-import json
+import uuid
 class Device:
-    def __init__(self, deviceName: str, meatureType : list[str], availableServices: list[str], serVicesDetailes: list[any]): #List[ServiceDEtails]
+    def __init__(self, deviceName: str, meatureType : list[str], availableServices: list[str], servicesDetailes: list[str]): #List[ServiceDEtails]
+        self.deviceId = str(uuid.uuid1())
         self.deviceName = deviceName
         self.meatureType = meatureType
         self.availableServices = availableServices
-        self.serVicesDetailes = serVicesDetailes
+        self.servicesDetailes = servicesDetailes
         self.lastUpdate = datetime.datetime.now().strftime("%d/%m/%Y %H:%M:%S")
-    
-    def getFull(self):
-        return self
-    
-    # def __str__(self):
-    #     return f"Device -> {self.deviceName} :: {self.meatureType} - {self.availableServices} - {self.serVicesDetailes} - {self.lastUpdate}"
-    # def __repr__(self):
-    #     return f"Device -> {self.deviceName} :: {self.meatureType} - {self.availableServices} - {self.serVicesDetailes} - {self.lastUpdate}"
-    # def __json__(self):
-    #     return json.dumps(self, default=lambda o: o.__dict__, sort_keys=False, indent=4)
 
-    def update(self, newDevice):
+    def fullUpdate(self, newDevice):
         self.deviceName = newDevice.deviceName
         self.meatureType = newDevice.meatureType
         self.availableServices = newDevice.availableServices
-        self.serVicesDetailes = newDevice.serVicesDetailes
-        self.lastUpdate = datetime.datetime.now()
-
-
-    # def save_to_db(self):
-    #     pass
+        self.servicesDetailes = newDevice.servicesDetailes
+        self.lastUpdate = datetime.datetime.now().strftime("%d/%m/%Y %H:%M:%S")
+        return self
     
+    def updateServicesDetails(self, newServicesDetails):
+        self.servicesDetailes = newServicesDetails
+        self.lastUpdate = datetime.datetime.now().strftime("%d/%m/%Y %H:%M:%S")
+        return self
+
+    def getFull(self):
+        return self
+    
+    def getId(self):
+        return self.deviceId
+    
+
+
+#-----------------------------------------------------------------------------
+    def __repr__(self):
+        return f"Device({self.deviceId}, {self.deviceName}, {self.meatureType}, {self.availableServices}, {self.servicesDetailes})"
+
+
+
+
+
 # if __name__ == "__main__":
-#     obj = Device("device1", ["temp"], ["service1"], [ServiceDetail("REST", "192.127.1.1"), ServiceDetail("MQTT", "mqtt.eclipse.org", ["topic1", "topic2"])])
-#     print(obj.__repr__())
-#     obj = Device("device2", ["temp","Humi"], ["service1"], [ServiceDetail("REST", "192.127.5.2:8080")])
-#     print(obj.__repr__())
+#     obj = Device("device1", ["temp"], ["service1"], ["123-123", "65646-12331"])
+#     print(obj)
+#     obj = Device("device2", ["temp","Humi"], ["service1"], ["123-777", "65646-44444"])
+#     print(obj)

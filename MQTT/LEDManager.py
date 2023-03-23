@@ -29,7 +29,7 @@ class LEDManager:
 
 if __name__ == "__main__":
     # conf = json.load(open('Settings.json'))
-    broker = 'broker.hivemq.com'
+    broker = 'test.mosquitto.org'
     port = 1883
     topic = 'IoT/grp4/led'
     ledMngr = LEDManager ('LEDManager', broker, port, topic)
