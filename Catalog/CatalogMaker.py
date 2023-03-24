@@ -132,17 +132,17 @@ class CatalogMaker:
         return False
 # --------------------------------------------   delete methods
 #cascade delete !!!
-    def deleteUser(self, userId):
-        usr = self.findUser(userId)
-        if usr is not None:
-            hsz = self.findUserHouses(userId)
-            if hsz is not None:
-                return False
-            else:
-                self.users.remove(usr)
-                self.lastUpdate = datetime.datetime.now().strftime("%d/%m/%Y %H:%M:%S")
-                return True
-        return False
+    # def deleteUser(self, userId):
+    #     usr = self.findUser(userId)
+    #     if usr is not None:
+    #         hsz = self.findUserHouses(userId)
+    #         if hsz is not None:
+    #             return False
+    #         else:
+    #             self.users.remove(usr)
+    #             self.lastUpdate = datetime.datetime.now().strftime("%d/%m/%Y %H:%M:%S")
+    #             return True
+    #     return False
 
 
 
@@ -152,7 +152,7 @@ class CatalogMaker:
         return json.dumps(self, default=lambda o: o.__dict__, sort_keys=False, indent=4)
     
     def saveJson(self):
-        with open('./DAO/data.json', 'w') as outfile:
+        with open('./Catalog/data.json', 'w') as outfile:
             outfile.truncate()
             outfile.write(self.toJson())
             outfile.close() # .__dict__ or .Json()
