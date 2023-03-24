@@ -1,0 +1,23 @@
+{
+  "catalogPath" : "../../../../Catalog/data.json",
+  "userServer" : {
+    "host" : "localhost",
+    "port" : 8080
+  },
+  "houseServer" : {
+    "host" : "localhost",
+    "port" : 8081
+  },
+  "deviceServer" : {
+    "host" : "localhost",
+    "port" : 8082
+  },
+  "detailServer" : {
+    "host" : "localhost",
+    "port" : 8083
+  },
+  "resourceCatalog" : {
+    "host" : "localhost",
+    "port" : 8084
+  }
+}
