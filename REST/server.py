@@ -3,10 +3,14 @@ import os
 import sys
 import json
 
+import HouseApi
+import UserApi
+import SensorApi
+
 import sys
 sys.path.insert(1, '/Users/graybook/Documents/Polito/Projects/IOT/Final')
-from DAO.CatalogManager import CatalogManager
-from DAO.CatalogMaker import CatalogMaker
+from Services.CatalogManager import CatalogManager
+from Services.CatalogMaker import CatalogMaker
 
 
 
@@ -25,24 +29,24 @@ class Home:
             # return os.path.dirname(os.path.abspath(__file__)) + os.path.sep
             return "500 file not found !!!"
 
-class Server:
-    exposed = True
+# class Server:
+#     exposed = True
 
-    def GET(self, *uri, **params):
-        # cm = CatalogManager("./DAO/Catalogue.json")
-        # return json.dumps(cm.getCatalog())
-        with open('./DAO/data.json') as user_file:
-            file_contents = user_file.read()
-        return json.dumps(json.loads(file_contents))
+#     def GET(self, *uri, **params):
+#         # cm = CatalogManager("./DAO/Catalogue.json")
+#         # return json.dumps(cm.getCatalog())
+#         with open('./DAO/data.json') as user_file:
+#             file_contents = user_file.read()
+#         return json.dumps(json.loads(file_contents))
     
-    def POST(self, *uri, **params):
-        return "POST Hello World!"
+#     def POST(self, *uri, **params):
+#         return "POST Hello World!"
     
-    def PUT(self, *uri, **params):
-        return "PUT Hello World!"
+#     def PUT(self, *uri, **params):
+#         return "PUT Hello World!"
     
-    def DELETE(self, *uri, **params):
-        return "DELET Hello World!"
+#     def DELETE(self, *uri, **params):
+#         return "DELET Hello World!"
     
 
 if __name__ == '__main__':
@@ -67,7 +71,10 @@ if __name__ == '__main__':
     }
     cherrypy.config.update(conf)
     cherrypy.tree.mount(Home(), '/home', conf)
-    cherrypy.tree.mount(Server(), '/server', conf)
+    cherrypy.tree.mount(HouseApi.HouseApi(), '/house', conf)
+    cherrypy.tree.mount(UserApi.UserApi(), '/user', conf)
+    cherrypy.tree.mount(SensorApi.SensorApi(), '/sensor', conf)
+    # cherrypy.tree.mount(Server(), '/server', conf)
 
     cherrypy.engine.start()
     cherrypy.engine.block()

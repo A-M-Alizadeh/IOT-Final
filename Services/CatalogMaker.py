@@ -131,7 +131,7 @@ class CatalogMaker:
             return srv
         return False
 # --------------------------------------------   delete methods
-
+#cascade delete !!!
     def deleteUser(self, userId):
         usr = self.findUser(userId)
         if usr is not None:
