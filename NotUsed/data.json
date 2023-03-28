@@ -1,64 +1,64 @@
 {
     "projectOwner": "Ali",
     "projectName": "HomeAutomation",
-    "lastUpdate": "24/03/2023 14:34:02",
+    "lastUpdate": "27/03/2023 17:47:02",
     "users": [
         {
-            "userId": "8a5cbad4-ca48-11ed-9a63-ae52d2a871b1",
-            "chatId": "8a5cbafc-ca48-11ed-9a63-ae52d2a871b1",
+            "userId": "9dc02a32-ccb6-11ed-8a0e-ae52d2a871b1",
+            "chatId": "9dc02a5a-ccb6-11ed-8a0e-ae52d2a871b1",
             "name": "Ali",
             "surename": "Alizadeh",
             "username": "gray",
             "housesIds": [
-                "8a5cbbe2-ca48-11ed-9a63-ae52d2a871b1"
+                "9dc02b36-ccb6-11ed-8a0e-ae52d2a871b1"
             ]
         },
         {
-            "userId": "8a5cbb4c-ca48-11ed-9a63-ae52d2a871b1",
-            "chatId": "8a5cbb6a-ca48-11ed-9a63-ae52d2a871b1",
+            "userId": "9dc02a8c-ccb6-11ed-8a0e-ae52d2a871b1",
+            "chatId": "9dc02ab4-ccb6-11ed-8a0e-ae52d2a871b1",
             "name": "Alex",
             "surename": "XYZ",
             "username": "alex",
             "housesIds": [
-                "8a5cbc14-ca48-11ed-9a63-ae52d2a871b1"
+                "9dc02b68-ccb6-11ed-8a0e-ae52d2a871b1"
             ]
         },
         {
-            "userId": "8a5cbb92-ca48-11ed-9a63-ae52d2a871b1",
-            "chatId": "8a5cbbba-ca48-11ed-9a63-ae52d2a871b1",
+            "userId": "9dc02adc-ccb6-11ed-8a0e-ae52d2a871b1",
+            "chatId": "9dc02b04-ccb6-11ed-8a0e-ae52d2a871b1",
             "name": "John",
             "surename": "Doe",
             "username": "john",
             "housesIds": [
-                "8a5cbc14-ca48-11ed-9a63-ae52d2a871b1"
+                "9dc02b68-ccb6-11ed-8a0e-ae52d2a871b1"
             ]
         }
     ],
     "houses": [
         {
-            "houseId": "8a5cbbe2-ca48-11ed-9a63-ae52d2a871b1",
+            "houseId": "9dc02b36-ccb6-11ed-8a0e-ae52d2a871b1",
             "usersIDs": [
-                "8a5cbad4-ca48-11ed-9a63-ae52d2a871b1"
+                "9dc02a32-ccb6-11ed-8a0e-ae52d2a871b1"
             ],
             "devicesIds": [
-                "8a5cb976-ca48-11ed-9a63-ae52d2a871b1"
+                "9dc02852-ccb6-11ed-8a0e-ae52d2a871b1"
             ]
         },
         {
-            "houseId": "8a5cbc14-ca48-11ed-9a63-ae52d2a871b1",
+            "houseId": "9dc02b68-ccb6-11ed-8a0e-ae52d2a871b1",
             "usersIDs": [
-                "8a5cbb4c-ca48-11ed-9a63-ae52d2a871b1",
-                "8a5cbb92-ca48-11ed-9a63-ae52d2a871b1"
+                "9dc02a8c-ccb6-11ed-8a0e-ae52d2a871b1",
+                "9dc02adc-ccb6-11ed-8a0e-ae52d2a871b1"
             ],
             "devicesIds": [
-                "8a5cba0c-ca48-11ed-9a63-ae52d2a871b1",
-                "8a5cba70-ca48-11ed-9a63-ae52d2a871b1"
+                "9dc02956-ccb6-11ed-8a0e-ae52d2a871b1",
+                "9dc029ce-ccb6-11ed-8a0e-ae52d2a871b1"
             ]
         }
     ],
     "devices": [
         {
-            "deviceId": "8a5cb976-ca48-11ed-9a63-ae52d2a871b1",
+            "deviceId": "9dc02852-ccb6-11ed-8a0e-ae52d2a871b1",
             "deviceName": "device1",
             "meatureType": [
                 "temp"
@@ -67,13 +67,13 @@
                 "service1"
             ],
             "servicesDetailes": [
-                "8a5cb804-ca48-11ed-9a63-ae52d2a871b1",
-                "8a5cb8f4-ca48-11ed-9a63-ae52d2a871b1"
+                "9dc0260e-ccb6-11ed-8a0e-ae52d2a871b1",
+                "9dc027d0-ccb6-11ed-8a0e-ae52d2a871b1"
             ],
-            "lastUpdate": "24/03/2023 14:34:02"
+            "lastUpdate": "27/03/2023 17:47:02"
         },
         {
-            "deviceId": "8a5cba0c-ca48-11ed-9a63-ae52d2a871b1",
+            "deviceId": "9dc02956-ccb6-11ed-8a0e-ae52d2a871b1",
             "deviceName": "device2",
             "meatureType": [
                 "temp",
@@ -83,12 +83,12 @@
                 "service1"
             ],
             "servicesDetailes": [
-                "8a5cb944-ca48-11ed-9a63-ae52d2a871b1"
+                "9dc0280c-ccb6-11ed-8a0e-ae52d2a871b1"
             ],
-            "lastUpdate": "24/03/2023 14:34:02"
+            "lastUpdate": "27/03/2023 17:47:02"
         },
         {
-            "deviceId": "8a5cba70-ca48-11ed-9a63-ae52d2a871b1",
+            "deviceId": "9dc029ce-ccb6-11ed-8a0e-ae52d2a871b1",
             "deviceName": "device3",
             "meatureType": [
                 "accell",
@@ -98,19 +98,19 @@
                 "service3"
             ],
             "servicesDetailes": [
-                "8a5cb944-ca48-11ed-9a63-ae52d2a871b1"
+                "9dc0280c-ccb6-11ed-8a0e-ae52d2a871b1"
             ],
-            "lastUpdate": "24/03/2023 14:34:02"
+            "lastUpdate": "27/03/2023 17:47:02"
         }
     ],
     "services": [
         {
-            "detailId": "8a5cb804-ca48-11ed-9a63-ae52d2a871b1",
+            "detailId": "9dc0260e-ccb6-11ed-8a0e-ae52d2a871b1",
             "serviceType": "REST",
             "serviceIp": "172.0.0.1"
         },
         {
-            "detailId": "8a5cb8f4-ca48-11ed-9a63-ae52d2a871b1",
+            "detailId": "9dc027d0-ccb6-11ed-8a0e-ae52d2a871b1",
             "serviceType": "MQTT",
             "serviceIp": "mqtt.eclipse.org",
             "topics": [
@@ -119,7 +119,7 @@
             ]
         },
         {
-            "detailId": "8a5cb944-ca48-11ed-9a63-ae52d2a871b1",
+            "detailId": "9dc0280c-ccb6-11ed-8a0e-ae52d2a871b1",
             "serviceType": "MQTT",
             "serviceIp": "mqtt.mosquitto.org",
             "topics": [

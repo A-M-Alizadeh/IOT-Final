@@ -30,7 +30,7 @@ class UserService(object):
     
 
 if __name__ == '__main__':
-    data = json.loads(open('../../config.json').read())
+    data = json.loads(open('./Microservices/REST/config.json').read())
     ip = data["userServer"]["host"]
     port = data["userServer"]["port"]
     conf = {
