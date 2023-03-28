@@ -1,51 +1,132 @@
 {
-  "ProjectOwner":"GROUP4",
-  "ProjectName":"mySmartHome",
-  "lastUpdate":"Date",
-  "usersList":[
-    {
-      "userId":"Ali Alizadeh",
-      "username":"ali",
-      "chatId":"123456",
-      "houses":[{"HouseId": 1}]
-    },
-    {
-      "userId":"Foo Bar",
-      "username":"foo",
-      "chatId":"123321",
-      "houses":[{"HouseId": 1}]
-    },
-    {
-      "userId":"John Doe",
-      "username":"john",
-      "chatId":"112233",
-      "houses":[{"HouseId": 2},{"HouseId": 3}]
-    }
-  ],
-  "houses":[
-    {
-      "userId": 1,
-      "houseId": 1,
-      "devicesList": [
+    "ProjectOwner": "GROUP4",
+    "ProjectName": "mySmartHome",
+    "lastUpdate": "Date",
+    "usersList": [
         {
-          "deviceId": 1,
-          "deviceName": "DHT11",
-          "measureType":["Temperature","Humidity"],
-          "availableServices":["MQTT", "REST"],
-          "servicesDetails":[
-            {
-              "serviceType":"MQTT",
-              "serviceIp":"mqtt.eclipse.org",
-              "topic":["mySmartThing/temp/1","mySmartThing/humid/1"]
-            },
-            {
-              "serviceType":"REST",
-              "serviceIp":"192.1.1.8080"
-            }
-          ],
-          "lastUpdate":"Date"
+            "username": "Alexiiiaarrrra",
+            "houseId": "",
+            "userId": "bd12dc64-ccc9-11ed-8c45-ae52d2a871b1",
+            "chatId": "bd12dd36-ccc9-11ed-8c45-ae52d2a871b1"
+        },
+        {
+            "username": "Alexiiiaaaaa",
+            "houseId": "",
+            "userId": "bd12dc64-ccc9-11ed-8c45-ae52d2a87155",
+            "chatId": "bd12dd36-ccc9-11ed-8c45-ae52d2a871b1"
+        },
+        {
+            "username": "Solomon",
+            "houseId": "4438cd74-cccb-11ed-91d1-ae52d2a871b1",
+            "userId": "4438cc52-cccb-11ed-91d1-ae52d2a871b1",
+            "chatId": "4438cd38-cccb-11ed-91d1-ae52d2a871b1"
+        },
+        {
+            "username": "Eva",
+            "houseId": "4438ce28-cccb-11ed-91d1-ae52d2a871b1",
+            "userId": "4438cdd8-cccb-11ed-91d1-ae52d2a871b1",
+            "chatId": "4438ce00-cccb-11ed-91d1-ae52d2a871b1"
         }
-      ]
-    }
-  ]
+    ],
+    "houses": [
+        {
+            "houseName": "Casa 1",
+            "devicesList": [
+                {
+                    "deviceId": 1,
+                    "deviceName": "Newww Device",
+                    "measureType": [
+                        "Temperature",
+                        "Humidity",
+                        "NEWWW Measure"
+                    ],
+                    "availableServices": [
+                        "MQTT"
+                    ],
+                    "servicesDetails": {
+                        "serviceType": "MQTT",
+                        "serviceIp": "mqtt.mosquitto.org",
+                        "topic": [
+                            "mySmartThing/temp/1",
+                            "mySmartThing/humid/1"
+                        ]
+                    }
+                }
+            ],
+            "houseId": "4438cd74-cccb-11ed-91d1-ae52d2a871b1",
+            "userId": "4438cc52-cccb-11ed-91d1-ae52d2a871b1"
+        },
+        {
+            "houseName": "Casa Eva",
+            "devicesList": [
+                {
+                    "deviceName": "AirConditioner",
+                    "measureType": [],
+                    "availableServices": [
+                        "REST"
+                    ],
+                    "servicesDetails": {
+                        "serviceType": "REST",
+                        "serviceIp": "http://localhost:8080"
+                    }
+                }
+            ],
+            "houseId": "4438ce28-cccb-11ed-91d1-ae52d2a871b1",
+            "userId": "4438cdd8-cccb-11ed-91d1-ae52d2a871b1"
+        },
+        {
+            "houseName": "ABS Home",
+            "devicesList": [
+                {
+                    "deviceId": 1,
+                    "deviceName": "Newww Device",
+                    "measureType": [
+                        "Temperature",
+                        "Humidity",
+                        "NEWWW Measure"
+                    ],
+                    "availableServices": [
+                        "MQTT"
+                    ],
+                    "servicesDetails": {
+                        "serviceType": "MQTT",
+                        "serviceIp": "mqtt.mosquitto.org",
+                        "topic": [
+                            "mySmartThing/temp/1",
+                            "mySmartThing/humid/1"
+                        ]
+                    }
+                }
+            ],
+            "houseId": "1263d09e-cccd-11ed-983c-ae52d2a871b1",
+            "userId": ""
+        },
+        {
+            "houseName": "NoUser",
+            "devicesList": [
+                {
+                    "deviceId": 1,
+                    "deviceName": "Newww Device",
+                    "measureType": [
+                        "Temperature",
+                        "Humidity",
+                        "NEWWW Measure"
+                    ],
+                    "availableServices": [
+                        "MQTT"
+                    ],
+                    "servicesDetails": {
+                        "serviceType": "MQTT",
+                        "serviceIp": "mqtt.mosquitto.org",
+                        "topic": [
+                            "mySmartThing/temp/1",
+                            "mySmartThing/humid/1"
+                        ]
+                    }
+                }
+            ],
+            "houseId": "057f9fe4-ccd1-11ed-96ce-ae52d2a871b1",
+            "userId": ""
+        }
+    ]
 }

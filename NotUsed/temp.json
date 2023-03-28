@@ -1,0 +1,80 @@
+{
+  "ProjectOwner": "GROUP4",
+  "ProjectName": "mySmartHome",
+  "lastUpdate": "Date",
+  "usersList": [
+    {
+      "userId": "Ali Alizadeh",
+      "username": "ali",
+      "chatId": "123456",
+      "houses": [
+        1
+      ]
+    },
+    {
+      "userId": "Reza Rezaei",
+      "username": "rez",
+      "chatId": "123456",
+      "houses": [
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "userId": "Michael Jackson",
+      "username": "mj",
+      "chatId": "222222",
+      "houses": [
+        1,
+        2
+      ]
+    },
+    {
+      "username": "Asghar Farhadi",
+      "houseId": 10,
+      "userId": "9cc2508e-ccc4-11ed-ac04-ae52d2a871b1"
+    },
+    {
+      "username": "Aliz",
+      "houseId": 1,
+      "userId": "c1fd6a96-ccc4-11ed-8bbd-ae52d2a871b1",
+      "chatId": "c1fd6bb8-ccc4-11ed-8bbd-ae52d2a871b1"
+    }
+  ],
+  "houses": [
+    {
+      "userId": 1,
+      "houseId": 1,
+      "devicesList": [
+        {
+          "deviceId": 1,
+          "deviceName": "DHT11",
+          "measureType": [
+            "Temperature",
+            "Humidity"
+          ],
+          "availableServices": [
+            "MQTT",
+            "REST"
+          ],
+          "servicesDetails": [
+            {
+              "serviceType": "MQTT",
+              "serviceIp": "mqtt.eclipse.org",
+              "topic": [
+                "mySmartThing/temp/1",
+                "mySmartThing/humid/1"
+              ]
+            },
+            {
+              "serviceType": "REST",
+              "serviceIp": "192.1.1.8080"
+            }
+          ],
+          "lastUpdate": "Date"
+        }
+      ]
+    }
+  ]
+}
