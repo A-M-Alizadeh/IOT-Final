@@ -27,17 +27,23 @@ class CatalogManager:
         newUser["userId"] = str(uuid.uuid1())
         newUser["chatId"] = str(uuid.uuid1())
         self.catalog["usersList"].append(newUser)
+        self.saveJson()
         return newUser["userId"]
 
     def createHouse(self, newHouse):
         newHouse["houseId"] = str(uuid.uuid1())
+        if "userId" not in newHouse:
+            newHouse["userId"] = ""
+        else:
+            self.setUserHouse(newHouse["userId"], newHouse["houseId"])
         self.catalog["houses"].append(newHouse)
+        self.saveJson()
         return newHouse["houseId"]
     
     def setUserHouse(self, userId, houseId):
         user = self.findUser(userId)
         if user is not None:
-            user["houseId"].append(houseId)
+            user["houseId"] = houseId
             return True
         return False
     
@@ -49,6 +55,7 @@ class CatalogManager:
         return False
 
     def createOrUpdateDevice(self, newDevice, userId, houseId):
+        isNew = True
         user = self.findUser(userId)
         if user is not None:
             house = self.findHouse(houseId)
@@ -56,13 +63,14 @@ class CatalogManager:
                 house["userId"] = userId
                 for dev in house["devicesList"]:
                     if dev["deviceId"] == newDevice["deviceId"]:
-                        house["devicesList"][house["devicesList"].index(
-                            dev)] = newDevice
-                        return True
-                    else:
-                        newDevice["deviceId"] = str(uuid.uuid1())
-                house["devicesList"].append(newDevice)
-                return True
+                        house["devicesList"][house["devicesList"].index(dev)] = newDevice
+                        isNew = False
+                if isNew:
+                    newDevice["deviceId"] = str(uuid.uuid1())
+                    house["devicesList"].append(newDevice)
+                self.saveJson()
+                return newDevice["deviceId"]
+            return False
         return False
 
     # ----------------- Finders -----------------#
@@ -106,12 +114,28 @@ class CatalogManager:
                     return device
         return None
 
-    def findDevice(self, deviceId: int):
+    def findDeviceByUser(self, userId: str):
+        tempDevices = []
+        for house in self.catalog["houses"]:
+            if house["userId"] == userId:
+                for device in house["devicesList"]:
+                    tempDevices.append(device)
+        return tempDevices
+    
+    def findDeviceByHouse(self, houseId: str):
+        tempDevices = []
+        for house in self.catalog["houses"]:
+            if house["houseId"] == houseId:
+                for device in house["devicesList"]:
+                    tempDevices.append(device)
+        return tempDevices
+    
+    def getAllDevices(self):
+        tempDevices = []
         for house in self.catalog["houses"]:
             for device in house["devicesList"]:
-                if device["deviceId"] == deviceId:
-                    return device
-        return None
+                tempDevices.append(device)
+        return tempDevices
 
     def findDeviceByMeasureType(self, measureType: str):
         tempDevices = []
@@ -127,51 +151,68 @@ class CatalogManager:
 
     def updateUser(self, userId,  newUser):
         user = self.findUser(userId)
-        newUser["houseId"] = user["houseId"]
+        if newUser["houseId"] == "":
+            newUser["houseId"] = user["houseId"]
         newUser["userId"] = user["userId"]
         newUser["chatId"] = user["chatId"]
         if user is not None:
             self.catalog["usersList"][self.catalog["usersList"].index(user)] = newUser
-            return True
+            self.saveJson()
+            return user["userId"]
         return False
 
     def updateHouse(self, houseId,  newHouse):
         house = self.findHouse(houseId)
         newHouse["houseId"] = house["houseId"]
-        newHouse["userId"] = house["userId"]
         if house is not None:
             print(house)
             print("------------------")
             print(newHouse)
             print("updating house ...")
             self.catalog["houses"][self.catalog["houses"].index(house)] = newHouse
-            return True
+            self.saveJson()
+            return house["houseId"]
         return False
 
     # ----------------- Remover -----------------#
 
     def removeUser(self, userId):
         user = self.findUser(userId)
+        print('-----> ',userId, user)
         if user is not None:
             self.catalog["usersList"].remove(user)
-        houses = self.findHouseByUser(userId)
-        print(houses)
-        if houses is not None:
-            for house in houses:
-                print("removing house ...")
-                house["userId"] = ""
-                self.updateHouse(house["houseId"], house)
+            houses = self.findHouseByUser(userId)
+            if houses is not None:
+                for house in houses:
+                    print("removing house ...")
+                    house["userId"] = ""
+                    self.updateHouse(house["houseId"], house)
+            self.saveJson()
+            return True
+        return False
 
     def removeHouse(self, houseId):
         house = self.findHouse(houseId)
         if house is not None:
             self.catalog["houses"].remove(house)
-        users = self.findUserByHouse(houseId)
-        if users is not None:
-            for user in users:
-                user["houseId"] = ""
-                self.updateUser(user["userId"], user)
+            users = self.findUserByHouse(houseId)
+            if users is not None:
+                for user in users:
+                    user["houseId"] = ""
+                    self.updateUser(user["userId"], user)
+            self.saveJson()
+            return True
+        return False
 
+    def removeDevice(self, deviceId, houseId):
+        house = self.findHouse(houseId)
+        if house is not None:
+            for device in house["devicesList"]:
+                if device["deviceId"] == deviceId:
+                    house["devicesList"].remove(device)
+                    self.saveJson()
+                    return True
+        return False
     # ----------------- Saver -----------------#
 
     def saveJson(self):
@@ -183,15 +224,15 @@ class CatalogManager:
 # --------------------------------------- Main #---------------------------------------
 
 
-if __name__ == "__main__":
-    try:
-        cr = CatalogManager("./Catalog/Catalogue.json")
-    except:
-        print("Error while loading the json file")
-        exit(1)
+# if __name__ == "__main__":
+#     try:
+#         cr = CatalogManager("./Catalog/Catalogue.json")
+#     except:
+#         print("Error while loading the json file")
+#         exit(1)
 
-    cr.removeHouse("12")
-    cr.saveJson()
+#     cr.removeHouse("12")
+#     cr.saveJson()
 
     # newUserID = cr.createUser({"username": "ABS", "houseId": ""})
     # newhouseID = cr.createHouse({"houseName": "Casabelanca", "devicesList": []})
