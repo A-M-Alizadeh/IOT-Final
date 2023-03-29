@@ -5,7 +5,7 @@
     "usersList": [
         {
             "username": "Alexiiiaarrrra",
-            "houseId": "",
+            "houseId": "beb8b92c-cdc2-11ed-809d-ae52d2a871b1",
             "userId": "bd12dc64-ccc9-11ed-8c45-ae52d2a871b1",
             "chatId": "bd12dd36-ccc9-11ed-8c45-ae52d2a871b1"
         },
@@ -127,6 +127,59 @@
             ],
             "houseId": "057f9fe4-ccd1-11ed-96ce-ae52d2a871b1",
             "userId": ""
+        },
+        {
+            "houseName": "post House 1",
+            "devicesList": [],
+            "houseId": "2891a33c-cdbd-11ed-8d1f-ae52d2a871b1",
+            "userId": ""
+        },
+        {
+            "houseName": "post House 2",
+            "devicesList": [
+                {
+                    "deviceId": "1562dc98-cdc4-11ed-bed4-ae52d2a871b1",
+                    "deviceName": "Post Device1 Updated",
+                    "measureType": [
+                        "Temperature",
+                        "Humidity",
+                        "Light"
+                    ],
+                    "availableServices": [
+                        "MQTT",
+                        "REST"
+                    ],
+                    "servicesDetails": {
+                        "serviceType": "MQTT",
+                        "serviceIp": "mqtt.mosquitto.org",
+                        "topic": [
+                            "mySmarthome/temp/1",
+                            "mySmartfactory/humid/1"
+                        ]
+                    }
+                },
+                {
+                    "deviceId": "dec7f33e-cdc4-11ed-9ce9-ae52d2a871b1",
+                    "deviceName": "Post Device 2",
+                    "measureType": [
+                        "Temperature",
+                        "Humidity"
+                    ],
+                    "availableServices": [
+                        "MQTT"
+                    ],
+                    "servicesDetails": {
+                        "serviceType": "MQTT",
+                        "serviceIp": "mqtt.mosquitto.org",
+                        "topic": [
+                            "mySmarthome/temp/1",
+                            "mySmartfactory/humid/1"
+                        ]
+                    }
+                }
+            ],
+            "userId": "bd12dc64-ccc9-11ed-8c45-ae52d2a871b1",
+            "houseId": "beb8b92c-cdc2-11ed-809d-ae52d2a871b1"
         }
     ]
 }
