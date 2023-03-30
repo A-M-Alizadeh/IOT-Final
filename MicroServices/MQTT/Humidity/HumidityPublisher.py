@@ -1,19 +1,36 @@
+import requests
 import json
 import time
 import os
 import sys
-sys.path.insert(1, '/Users/graybook/Documents/Polito/Projects/IOT/Final') #/MicroServices/REST/Micros
+
+sys.path.insert(1, '/Users/graybook/Documents/Polito/Projects/IOT/Final')
 from MicroServices.MQTT.MyMQTT import *
 
-#test.mosquitto.org
-#broker.hivemq.com
-#iot.eclipse.org
+#--------------------------------------------REST API------------------------------------------------
+class CatalogApi:
+    def __init__(self):
+        conf = json.loads(open('./Microservices/MQTT/config.json').read())
+        headers = {'Content-Type': 'application/json'}
+        fullPath = conf["baseUrl"]+str(conf["rest_port"])+'/device?'+'&deviceId='+conf["humid_deviceId"] # + 'userId='+conf["userId"]
+        response = requests.get(fullPath, headers=headers).json()
+        self.broker = response["servicesDetails"]["serviceIp"] #'test.mosquitto.org'
+        self.port = 1883
+        self.topic = response["servicesDetails"]["topic"][0] #'IoT/grp4/temperature'
+    
+    def getBroker(self):
+        return self.broker
+    
+    def getPort(self):
+        return self.port
+    
+    def getTopic(self):
+        return self.topic
 
 
+#--------------------------------------------MQTT------------------------------------------------
 class HumidityPublisher:
-    print(os.getcwd())
-    def __init__(self,clientID, broker, port, topic):
-        print(os.getcwd())
+    def __init__(self, clientID, broker, port, topic):
         self.statusToBool = {"ON": True, "OFF": False}
         self.topic = topic
         self.mqttClient = MyMQTT(clientID, broker, port, None)
@@ -27,15 +44,19 @@ class HumidityPublisher:
 
     def publish(self, value):
         message = self.__message
-        message["status"] = value #elf.statusToBool[value]
+        message["status"] = value  # self.statusToBool[value]
         message["timestamp"] = str(time.time())
         self.mqttClient.myPublish(self.topic, message)
         print(f'Published {message} to {self.topic}')
 
+
+
+#--------------------------------------------MAIN------------------------------------------------
 if __name__ == "__main__":
-    broker = 'test.mosquitto.org'
-    port = 1883
-    topic = 'IoT/grp4/humidity'
+    api = CatalogApi()
+    broker = api.getBroker()
+    port = api.getPort()
+    topic = api.getTopic()
     ledMngr = HumidityPublisher ('HumidityManager', broker, port, topic)
     ledMngr.mqttClient.start()
     time.sleep(2)
@@ -44,5 +65,5 @@ if __name__ == "__main__":
     a = 0
     while not done:
             a += 1
-            ledMngr.publish(f'Humid Detail -> ${a}')
+            ledMngr.publish(f'Temp Detail ${a}')
             time.sleep(1)

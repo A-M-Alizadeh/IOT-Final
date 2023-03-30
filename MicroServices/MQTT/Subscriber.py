@@ -18,6 +18,14 @@ class LEDManager:
         self.mqttClient.start()
         self.mqttClient.mySubscribe(self. topic)
         
+    def stop(self):
+        self.mqttClient.stop()
+
+    def saveTemperture(self, value):
+        pass
+
+    def saveHumidity(self, value):
+        pass
 
 if __name__ == "__main__":
     led = LEDManager ('grp4_mqtt_iot_123456', 'test.mosquitto.org', 1883, 'IoT/grp4/+')

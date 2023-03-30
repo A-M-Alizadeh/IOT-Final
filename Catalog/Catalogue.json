@@ -1,10 +1,10 @@
 {
     "ProjectOwner": "GROUP4",
-    "ProjectName": "mySmartHome",
+    "ProjectName": "SmartHome",
     "lastUpdate": "Date",
     "usersList": [
         {
-            "username": "Alexiiiaarrrra",
+            "username": "Kevin Hart",
             "houseId": "beb8b92c-cdc2-11ed-809d-ae52d2a871b1",
             "userId": "bd12dc64-ccc9-11ed-8c45-ae52d2a871b1",
             "chatId": "bd12dd36-ccc9-11ed-8c45-ae52d2a871b1"
@@ -45,7 +45,8 @@
                     ],
                     "servicesDetails": {
                         "serviceType": "MQTT",
-                        "serviceIp": "mqtt.mosquitto.org",
+                        "serviceIp": "test.mosquitto.org",
+                        "servicePort": 1883,
                         "topic": [
                             "mySmartThing/temp/1",
                             "mySmartThing/humid/1"
@@ -72,7 +73,8 @@
                     ],
                     "servicesDetails": {
                         "serviceType": "MQTT",
-                        "serviceIp": "mqtt.mosquitto.org",
+                        "serviceIp": "test.mosquitto.org",
+                        "servicePort": 1883,
                         "topic": [
                             "mySmartThing/temp/1",
                             "mySmartThing/humid/1"
@@ -99,7 +101,8 @@
                     ],
                     "servicesDetails": {
                         "serviceType": "MQTT",
-                        "serviceIp": "mqtt.mosquitto.org",
+                        "serviceIp": "test.mosquitto.org",
+                        "servicePort": 1883,
                         "topic": [
                             "mySmartThing/temp/1",
                             "mySmartThing/humid/1"
@@ -111,14 +114,14 @@
             "userId": ""
         },
         {
-            "houseName": "post House 2",
+            "houseName": "Kevin's Home",
             "devicesList": [
                 {
                     "deviceId": "1562dc98-cdc4-11ed-bed4-ae52d2a871b1",
-                    "deviceName": "Post Device1 Updated",
+                    "deviceName": "Humidity Device",
                     "measureType": [
-                        "Temperature",
                         "Humidity",
+                        "Temperature",
                         "Light"
                     ],
                     "availableServices": [
@@ -127,16 +130,17 @@
                     ],
                     "servicesDetails": {
                         "serviceType": "MQTT",
-                        "serviceIp": "mqtt.mosquitto.org",
+                        "serviceIp": "test.mosquitto.org",
+                        "servicePort": 1883,
                         "topic": [
-                            "mySmarthome/temp/1",
-                            "mySmartfactory/humid/1"
+                            "IoT/grp4/humidity",
+                            "IoT/grp4/humidity"
                         ]
                     }
                 },
                 {
                     "deviceId": "dec7f33e-cdc4-11ed-9ce9-ae52d2a871b1",
-                    "deviceName": "Post Device 2",
+                    "deviceName": "Temperature Device",
                     "measureType": [
                         "Temperature",
                         "Humidity"
@@ -147,9 +151,10 @@
                     "servicesDetails": {
                         "serviceType": "MQTT",
                         "serviceIp": "test.mosquitto.org",
+                        "servicePort": 1883,
                         "topic": [
                             "IoT/grp4/temperature",
-                            "mySmartfactory/humid/1"
+                            "IoT/grp4/temperature"
                         ]
                     }
                 }
