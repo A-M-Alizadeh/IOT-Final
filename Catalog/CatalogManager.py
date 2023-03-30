@@ -1,6 +1,7 @@
 import json
 import uuid
 
+
 class CatalogManager:
 
     # ----------------- Constructor -----------------#
@@ -39,14 +40,14 @@ class CatalogManager:
         self.catalog["houses"].append(newHouse)
         self.saveJson()
         return newHouse["houseId"]
-    
+
     def setUserHouse(self, userId, houseId):
         user = self.findUser(userId)
         if user is not None:
             user["houseId"] = houseId
             return True
         return False
-    
+
     def updateHouseUser(self, userId, houseId):
         user = self.findUser(userId)
         if user is not None:
@@ -63,7 +64,8 @@ class CatalogManager:
                 house["userId"] = userId
                 for dev in house["devicesList"]:
                     if dev["deviceId"] == newDevice["deviceId"]:
-                        house["devicesList"][house["devicesList"].index(dev)] = newDevice
+                        house["devicesList"][house["devicesList"].index(
+                            dev)] = newDevice
                         isNew = False
                 if isNew:
                     newDevice["deviceId"] = str(uuid.uuid1())
@@ -95,11 +97,11 @@ class CatalogManager:
 
     def findHouseByUser(self, userId: str):
         houses = []
-        for house in self.getHouses(): 
+        for house in self.getHouses():
             if house["userId"] == userId:
                 houses.append(house)
         return houses
-    
+
     def findUserByHouse(self, houseId: str):
         users = []
         for user in self.getUsers():
@@ -107,9 +109,10 @@ class CatalogManager:
                 users.append(user)
         return users
 
-    def findDevice(self, deviceId: int):
+    def findDevice(self, deviceId: str):
         for house in self.catalog["houses"]:
             for device in house["devicesList"]:
+                print('--------->',device)
                 if device["deviceId"] == deviceId:
                     return device
         return None
@@ -121,7 +124,7 @@ class CatalogManager:
                 for device in house["devicesList"]:
                     tempDevices.append(device)
         return tempDevices
-    
+
     def findDeviceByHouse(self, houseId: str):
         tempDevices = []
         for house in self.catalog["houses"]:
@@ -129,7 +132,7 @@ class CatalogManager:
                 for device in house["devicesList"]:
                     tempDevices.append(device)
         return tempDevices
-    
+
     def getAllDevices(self):
         tempDevices = []
         for house in self.catalog["houses"]:
@@ -156,7 +159,8 @@ class CatalogManager:
         newUser["userId"] = user["userId"]
         newUser["chatId"] = user["chatId"]
         if user is not None:
-            self.catalog["usersList"][self.catalog["usersList"].index(user)] = newUser
+            self.catalog["usersList"][self.catalog["usersList"].index(
+                user)] = newUser
             self.saveJson()
             return user["userId"]
         return False
@@ -169,7 +173,8 @@ class CatalogManager:
             print("------------------")
             print(newHouse)
             print("updating house ...")
-            self.catalog["houses"][self.catalog["houses"].index(house)] = newHouse
+            self.catalog["houses"][self.catalog["houses"].index(
+                house)] = newHouse
             self.saveJson()
             return house["houseId"]
         return False
@@ -178,7 +183,7 @@ class CatalogManager:
 
     def removeUser(self, userId):
         user = self.findUser(userId)
-        print('-----> ',userId, user)
+        print('-----> ', userId, user)
         if user is not None:
             self.catalog["usersList"].remove(user)
             houses = self.findHouseByUser(userId)
@@ -248,7 +253,6 @@ class CatalogManager:
     #     }
     # }, "1263cf68-cccd-11ed-983c-ae52d2a871b1", "057f9fe4-ccd1-11ed-96ce-ae52d2a871b1")
 
-
     # newUserID = cr.createUser({"username": "Eva", "houseId": [200]})
     # newhouseID = cr.createHouse({"houseName": "Casa Eva", "devicesList": []})
     # cr.setUserHouse(newUserID, newhouseID)
@@ -263,9 +267,6 @@ class CatalogManager:
     # }, newUserID, newhouseID)
 
     # cr.updateUser("bd12dc64-ccc9-11ed-8c45-ae52d2a871b1", {"username": "Alex", "houseId": ["2016"]})
-
-
-    
 
     # cr.createUser({"username": "sara", "houseId": []})
     # print(cr.getHouses())

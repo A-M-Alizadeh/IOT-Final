@@ -26,6 +26,8 @@ class DeviceService(object):
     exposed = True
 
     def GET(self, *uri, **params):
+        if "deviceId" in params:
+            return json.dumps(cm.findDevice(params.get("deviceId")))
         if "userId" in params:
             return json.dumps(cm.findDeviceByUser(params.get("userId")))
         elif "houseId" in params:
