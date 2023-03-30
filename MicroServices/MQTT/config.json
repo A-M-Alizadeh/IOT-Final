@@ -1,7 +1,8 @@
 {
   "baseUrl": "http://127.0.0.1:",
-  "port": 8082,
+  "rest_port": 8082,
   "userId": "4438cdd8-cccb-11ed-91d1-ae52d2a871b1",
   "houseId": "4438ce28-cccb-11ed-91d1-ae52d2a871b1",
-  "deviceId": "dec7f33e-cdc4-11ed-9ce9-ae52d2a871b1"
+  "temp_deviceId": "dec7f33e-cdc4-11ed-9ce9-ae52d2a871b1",
+  "humid_deviceId": "1562dc98-cdc4-11ed-bed4-ae52d2a871b1"
 }
