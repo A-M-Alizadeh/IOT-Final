@@ -20,9 +20,9 @@ class CatalogApi:
         headers = {'Content-Type': 'application/json'}
         fullPath = conf["baseUrl"]+str(conf["rest_port"])+'/device?' + 'userId='+conf["userId"]+'&deviceId='+conf["temp_deviceId"]
         response = requests.get(fullPath, headers=headers).json()
-        self.broker = response["servicesDetails"]["serviceIp"] #'test.mosquitto.org'
+        self.broker = response["servicesDetails"]["serviceIp"]
         self.port = 1883
-        self.topic = response["servicesDetails"]["topic"][0]#'IoT/grp4/temperature'
+        self.topic = response["servicesDetails"]["topic"][0]
     
     def getBroker(self):
         return self.broker

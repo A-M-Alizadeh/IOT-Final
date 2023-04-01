@@ -1,34 +1,40 @@
-.homebody{
-  background-image: url(/assets/pxfuel.jpg);
+.homebody {
+  background-image: url('/static/assets/pxfuel.jpg');
   background-size: cover;
   /* filter: blur(8px);
   -webkit-filter: blur(8px); */
   background-repeat: no-repeat;
   height: 100vh;
 }
-.navbar-header a{
+
+.navbar-header a {
   color: white;
   font-family: cursive;
   font-size: 30px;
   margin-left: 5px;
   top: 0;
 }
-li a{
+
+li a {
   color: #c5bdbd !important;
   font-weight: bold;
 }
-li a:hover{
+
+li a:hover {
   color: white !important;
 }
-.page-heading{
+
+.page-heading {
   text-align: center;
 }
-label{
+
+label {
   font-weight: bold;
   font-size: 36px;
   margin: 30px;
   text-align: center;
 }
-.active{
+
+.active {
   color: white !important;
 }
