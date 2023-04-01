@@ -9,8 +9,7 @@ import json
     # there is a difference between os.getcwd() in Mac Terminal and VSCode
     # VSCode returns the path to project root folder, while Mac Terminal returns the path to the current folder
 """
-currentPath = os.getcwd()[:os.getcwd().find(
-    '/Final')+len('/Final')]+os.path.sep
+currentPath = os.getcwd()[:os.getcwd().find('/Final')+len('/Final')]+os.path.sep
 sys.path.insert(1, currentPath)
 
 
@@ -42,6 +41,8 @@ if __name__ == '__main__':
     conf = {
         '/': {
             'request.dispatch': cherrypy.dispatch.MethodDispatcher(),
+            'tools.response_headers.on': True,
+            'tools.response_headers.headers': [('Access-Control-Allow-Origin', '*')],
             'tools.sessions.on': True,
             'tools.staticdir.root': currentPath+'Microservices/REST/'
         },
