@@ -3,24 +3,22 @@ import os
 import sys
 import json
 
-#path to current folder
-currentPath = os.path.dirname(os.path.abspath(__file__)) + os.path.sep
-
 """
     -------------------------------------------- Notice --------------------------------------------
-    path to parent folder
-    if you want to use the parent folder, uncomment the following lines
-    you need to change the path used for other path used in the code
+    #path to parent folder
+    # there is a difference between os.getcwd() in Mac Terminal and VSCode
+    # VSCode returns the path to project root folder, while Mac Terminal returns the path to the current folder
 """
-# currentPath = os.getcwd()[:os.getcwd().find('/Final')+len('/Final')]+os.path.sep
-# sys.path.insert(1, currentPath)
+currentPath = os.getcwd()[:os.getcwd().find(
+    '/Final')+len('/Final')]+os.path.sep
+sys.path.insert(1, currentPath)
 
 
 class Server(object):
     exposed = True
 
     def GET(self, *uri, **params):
-        return open(currentPath+'public/html/index.html')
+        return open(currentPath+'Microservices/REST/public/html/index.html')
 
     def POST(self, *uri, **params):
         return "POST  Server !"
@@ -32,10 +30,12 @@ class Server(object):
         return "DELET  Server !"
 
 
-
 # -------------------------------------------- Main --------------------------------------------
 if __name__ == '__main__':
-    data = json.loads(open(currentPath+'config.json').read())
+    print('***********> ', os.path.dirname(os.path.abspath(__file__)) + os.path.sep)
+    print('***********> ', currentPath+'Microservices/REST/')
+    data = json.loads(
+        open(currentPath+'Microservices/REST/config.json').read())
     ip = data["resourceCatalog"]["host"]
     port = data["resourceCatalog"]["port"]
 
@@ -43,11 +43,11 @@ if __name__ == '__main__':
         '/': {
             'request.dispatch': cherrypy.dispatch.MethodDispatcher(),
             'tools.sessions.on': True,
-            'tools.staticdir.root': currentPath
+            'tools.staticdir.root': currentPath+'Microservices/REST/'
         },
         '/static': {
             'tools.staticdir.on': True,
-            'tools.staticdir.dir': 'Microservices/REST/public'
+            'tools.staticdir.dir': 'public'
         },
     }
     cherrypy.config.update(conf)

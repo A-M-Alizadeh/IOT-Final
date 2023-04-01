@@ -1,5 +1,5 @@
 .homebody{
-  background-image: url(../assets/pxfuel.jpg);
+  background-image: url(/assets/pxfuel.jpg);
   background-size: cover;
   /* filter: blur(8px);
   -webkit-filter: blur(8px); */
