@@ -3,11 +3,12 @@ import os
 import sys
 import json
 
-import sys
-sys.path.insert(1, '/Users/graybook/Documents/Polito/Projects/IOT/Final')
+currentPath = os.getcwd()[:os.getcwd().find('/Final')+len('/Final')]+os.path.sep
+sys.path.insert(1, currentPath)
 from Catalog.CatalogManager import CatalogManager
 
-cm = CatalogManager('./Catalog/Catalogue.json')
+
+cm = CatalogManager(currentPath+'/Catalog/Catalogue.json')
 
 
 class HouseService(object):
@@ -59,19 +60,13 @@ class HouseService(object):
             raise cherrypy.HTTPError(400, "Bad Request")
     
 
-
-
-
-
-
-
-
-    
+# -------------------------------------------- Main --------------------------------------------
 
 if __name__ == '__main__':
-    data = json.loads(open('./Microservices/REST/config.json').read())
+    data = json.loads(open(currentPath+'/Microservices/REST/config.json').read())
     ip = data["houseServer"]["host"]
     port = data["houseServer"]["port"]
+    # TODO: update Path if needed
     conf = {
         '/': {
             'request.dispatch': cherrypy.dispatch.MethodDispatcher(),

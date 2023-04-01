@@ -33,7 +33,7 @@ class MyPublisher:
 
 
 if __name__ == "__main__":
-	test = MyPublisher("alimypubtestpubIOT","orlando/iot/1",'test.mosquitto.org')
+	test = MyPublisher("alimypubtestpubIOTsss","orlando/iot/1ssss",'test.mosquitto.org')
 	test.start()
 
 	a = 0

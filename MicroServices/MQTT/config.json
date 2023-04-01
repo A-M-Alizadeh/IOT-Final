@@ -1,4 +1,6 @@
 {
+  "broker":"",
+  "broker_port": 1883,
   "baseUrl": "http://127.0.0.1:",
   "rest_port": 8082,
   "userId": "4438cdd8-cccb-11ed-91d1-ae52d2a871b1",

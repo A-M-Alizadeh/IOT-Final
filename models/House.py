@@ -36,7 +36,6 @@ class House:
     
     def getDevices(self):
         return self.devicesIds
-    
 #----------------------------------------------------
     def __repr__(self):
         return f"House({self.houseId}, {self.usersIDs}, {self.devicesIds})"

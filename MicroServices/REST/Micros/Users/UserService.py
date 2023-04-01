@@ -3,11 +3,18 @@ import os
 import sys
 import json
 
-import sys
-sys.path.insert(1, '/Users/graybook/Documents/Polito/Projects/IOT/Final') #/MicroServices/REST/Micros
+"""
+    -------------------------------------------- Notice --------------------------------------------
+    #path to parent folder
+    # there is a difference between os.getcwd() in Mac Terminal and VSCode
+    # VSCode returns the path to project root folder, while Mac Terminal returns the path to the current folder
+"""
+currentPath = os.getcwd()[:os.getcwd().find('/Final')+len('/Final')]+os.path.sep
+sys.path.insert(1, currentPath)
 from Catalog.CatalogManager import CatalogManager
 
-cm = CatalogManager('./Catalog/Catalogue.json')
+
+cm = CatalogManager(currentPath+'/Catalog/Catalogue.json')
 
 
 # print(cherrypy.url(qs = cherrypy.request.query_string, relative = "server"))
@@ -64,21 +71,12 @@ class UserService(object):
 
 
 
-
-
-
-
-
-
-
-
-
-
-
+# -------------------------------------------- Main --------------------------------------------
 if __name__ == '__main__':
-    data = json.loads(open('./Microservices/REST/config.json').read())
+    data = json.loads(open(currentPath+'/Microservices/REST/config.json').read())
     ip = data["userServer"]["host"]
     port = data["userServer"]["port"]
+    # TODO: update Path if needed
     conf = {
         '/': {
             'request.dispatch': cherrypy.dispatch.MethodDispatcher(),
