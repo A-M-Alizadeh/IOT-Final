@@ -1,26 +1,20 @@
-# from Catalog.CatalogManager import CatalogManager
-# import cherrypy
-# import os
-# import sys
-# import json
-
-# import sys
-# # /MicroServices/REST/Micros
-# sys.path.insert(1, '/Users/graybook/Documents/Polito/Projects/IOT/Final')
-
-# cm = CatalogManager('./Catalog/Catalogue.json')
-
 import cherrypy
 import os
 import sys
 import json
 
-import sys
-sys.path.insert(1, '/Users/graybook/Documents/Polito/Projects/IOT/Final') #/MicroServices/REST/Micros
+"""
+    -------------------------------------------- Notice --------------------------------------------
+    #path to parent folder
+    # there is a difference between os.getcwd() in Mac Terminal and VSCode
+    # VSCode returns the path to project root folder, while Mac Terminal returns the path to the current folder
+"""
+currentPath = os.getcwd()[:os.getcwd().find('/Final')+len('/Final')]+os.path.sep
+sys.path.insert(1, currentPath)
 from Catalog.CatalogManager import CatalogManager
 
-cm = CatalogManager('./Catalog/Catalogue.json')
 
+cm = CatalogManager(currentPath+'/Catalog/Catalogue.json')
 
 class DeviceService(object):
     exposed = True
@@ -75,18 +69,11 @@ class DeviceService(object):
             raise cherrypy.HTTPError(400, "Bad Request")
 
 
-
-
-
-
-
-
-
-
+# -------------------------------------------- Main --------------------------------------------
 
 if __name__ == '__main__':
     # data = json.loads(open('./Microservices/REST/config.json').read())
-    data = json.loads(open('./Microservices/REST/config.json').read())
+    data = json.loads(open(currentPath + '/Microservices/REST/config.json').read())
     ip = data["deviceServer"]["host"]
     port = data["deviceServer"]["port"]
     conf = {

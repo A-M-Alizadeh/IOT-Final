@@ -22,7 +22,6 @@ class ServiceDetail:
     
     def getId(self):
         return self.detailId
-    
 #----------------------------------------------------
     def __repr__(self):
         if hasattr(self, 'topics'):

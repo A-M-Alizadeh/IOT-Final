@@ -2,12 +2,13 @@ import cherrypy
 import os
 import sys
 import json
-# from config import catalogPath
 
-import sys
-sys.path.insert(1, '/Users/graybook/Documents/Polito/Projects/IOT/Final/MicroServices/REST')
-# from Catalog.CatalogManager import CatalogManager
-# from Catalog.CatalogMaker import CatalogMaker
+currentPath = os.getcwd()[:os.getcwd().find('/Final')+len('/Final')]+os.path.sep
+sys.path.insert(1, currentPath)
+from Catalog.CatalogManager import CatalogManager
+
+
+cm = CatalogManager(currentPath+'/Catalog/Catalogue.json')
 
 
 class DetailService(object):

@@ -3,15 +3,24 @@ import os
 import sys
 import json
 
-# import sys
-# sys.path.insert(1, '/Users/graybook/Documents/Polito/Projects/IOT/Final/MicroServices/REST')
+#path to current folder
+currentPath = os.path.dirname(os.path.abspath(__file__)) + os.path.sep
+
+"""
+    -------------------------------------------- Notice --------------------------------------------
+    path to parent folder
+    if you want to use the parent folder, uncomment the following lines
+    you need to change the path used for other path used in the code
+"""
+# currentPath = os.getcwd()[:os.getcwd().find('/Final')+len('/Final')]+os.path.sep
+# sys.path.insert(1, currentPath)
 
 
 class Server(object):
     exposed = True
 
     def GET(self, *uri, **params):
-        return open("./Microservices/REST/public/html/index.html")
+        return open(currentPath+'public/html/index.html')
 
     def POST(self, *uri, **params):
         return "POST  Server !"
@@ -23,10 +32,10 @@ class Server(object):
         return "DELET  Server !"
 
 
+
+# -------------------------------------------- Main --------------------------------------------
 if __name__ == '__main__':
-    print('---------> ',os.getcwdb())
-    print('---------> ',os.path.dirname(os.path.abspath(__file__)) + os.path.sep)
-    data = json.loads(open('./Microservices/REST/config.json').read())
+    data = json.loads(open(currentPath+'config.json').read())
     ip = data["resourceCatalog"]["host"]
     port = data["resourceCatalog"]["port"]
 
@@ -34,11 +43,11 @@ if __name__ == '__main__':
         '/': {
             'request.dispatch': cherrypy.dispatch.MethodDispatcher(),
             'tools.sessions.on': True,
-            'tools.staticdir.root': os.path.abspath(os.getcwd())
+            'tools.staticdir.root': currentPath
         },
         '/static': {
             'tools.staticdir.on': True,
-            'tools.staticdir.dir': './Microservices/REST/public'
+            'tools.staticdir.dir': 'Microservices/REST/public'
         },
     }
     cherrypy.config.update(conf)

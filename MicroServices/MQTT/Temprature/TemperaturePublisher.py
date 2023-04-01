@@ -3,19 +3,20 @@ import json
 import time
 import os
 import sys
-# /MicroServices/REST/Micros
-sys.path.insert(1, '/Users/graybook/Documents/Polito/Projects/IOT/Final')
+"""
+    -------------------------------------------- Notice --------------------------------------------
+    #path to parent folder
+    # there is a difference between os.getcwd() in Mac Terminal and VSCode
+    # VSCode returns the path to project root folder, while Mac Terminal returns the path to the current folder
+"""
+currentPath = os.getcwd()[:os.getcwd().find('/Final')+len('/Final')]+os.path.sep
+sys.path.insert(1, currentPath)
 from MicroServices.MQTT.MyMQTT import *
-
-# test.mosquitto.org
-# broker.hivemq.com
-# iot.eclipse.org
-
 
 #--------------------------------------------REST API------------------------------------------------
 class CatalogApi:
     def __init__(self):
-        conf = json.loads(open('./Microservices/MQTT/config.json').read())
+        conf = json.loads(open(currentPath+'Microservices/MQTT/config.json').read())
         headers = {'Content-Type': 'application/json'}
         fullPath = conf["baseUrl"]+str(conf["rest_port"])+'/device?' + 'userId='+conf["userId"]+'&deviceId='+conf["temp_deviceId"]
         response = requests.get(fullPath, headers=headers).json()
@@ -62,10 +63,10 @@ if __name__ == "__main__":
     broker = api.getBroker()
     port = api.getPort()
     topic = api.getTopic()
-    ledMngr = TemperaturePublisher ('TemperatureManager', broker, port, topic)
+    ledMngr = TemperaturePublisher ('TemperaturePublisher', broker, port, topic)
     ledMngr.mqttClient.start()
     time.sleep(2)
-    print('Temperature Manager started')
+    print('Temperature Publisher started')
     done = False
     a = 0
     while not done:

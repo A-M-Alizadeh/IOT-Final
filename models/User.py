@@ -37,7 +37,6 @@ class User:
     
     def getHouses(self):
         return self.housesIds
-    
 #----------------------------------------------------
     def __repr__(self):
         return f"User({self.name}, {self.surename}, {self.username}, {self.housesIds})"

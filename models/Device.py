@@ -28,9 +28,6 @@ class Device:
     
     def getId(self):
         return self.deviceId
-    
-
-
 #-----------------------------------------------------------------------------
     def __repr__(self):
         return f"Device({self.deviceId}, {self.deviceName}, {self.meatureType}, {self.availableServices}, {self.servicesDetailes})"

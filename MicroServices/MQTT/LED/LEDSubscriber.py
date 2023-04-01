@@ -1,6 +1,17 @@
-from MyMQTT import *
 import json
 import time
+import sys
+import os
+
+"""
+    -------------------------------------------- Notice --------------------------------------------
+    #path to parent folder
+    # there is a difference between os.getcwd() in Mac Terminal and VSCode
+    # VSCode returns the path to project root folder, while Mac Terminal returns the path to the current folder
+"""
+currentPath = os.getcwd()[:os.getcwd().find('/Final')+len('/Final')]+os.path.sep
+sys.path.insert(1, currentPath)
+from MicroServices.MQTT.MyMQTT import *
 
 class LEDManager:
     def __init__(self,clientID, broker, port, topic):

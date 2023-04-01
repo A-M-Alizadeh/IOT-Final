@@ -226,8 +226,8 @@ class CatalogManager:
             outfile.write(json.dumps(self.catalog, indent=4))
             outfile.close()
 
-# --------------------------------------- Main #---------------------------------------
 
+# --------------------------------------- Main #---------------------------------------
 
 # if __name__ == "__main__":
 #     try:
