@@ -80,8 +80,11 @@ if __name__ == '__main__':
     conf = {
         '/': {
             'request.dispatch': cherrypy.dispatch.MethodDispatcher(),
+            'tools.response_headers.on': True,
+            'tools.response_headers.headers': [('Access-Control-Allow-Origin', '*')],
             'tools.sessions.on': True,
-            'tools.encode.on': True, 'tools.encode.encoding': 'utf-8',
+            'tools.encode.on': True, 
+            'tools.encode.encoding': 'utf-8',
             'tools.decode.on': True,
             'tools.trailing_slash.on': True,
             'tools.staticdir.root': os.path.abspath(os.path.dirname(__file__)),

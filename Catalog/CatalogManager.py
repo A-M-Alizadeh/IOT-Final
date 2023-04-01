@@ -21,6 +21,14 @@ class CatalogManager:
 
     def getCatalog(self):
         return self.catalog
+    
+    def getAllDevices(self):
+        tempDevices = []
+        for house in self.catalog["houses"]:
+            for device in house["devicesList"]:
+                tempDevices.append(device)
+        return tempDevices
+
 
     # ----------------- Setters -----------------#
 
@@ -131,13 +139,6 @@ class CatalogManager:
             if house["houseId"] == houseId:
                 for device in house["devicesList"]:
                     tempDevices.append(device)
-        return tempDevices
-
-    def getAllDevices(self):
-        tempDevices = []
-        for house in self.catalog["houses"]:
-            for device in house["devicesList"]:
-                tempDevices.append(device)
         return tempDevices
 
     def findDeviceByMeasureType(self, measureType: str):
