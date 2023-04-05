@@ -13,13 +13,13 @@ currentPath = os.getcwd()[:os.getcwd().find('/Final')+len('/Final')]+os.path.sep
 sys.path.insert(1, currentPath)
 from MicroServices.MQTT.MyMQTT import *
 
-class LEDManager:
+class LEDSubscriber:
     def __init__(self,clientID, broker, port, topic):
         self.status = 'OFF'
         self.topic = topic
         self.mqttClient = MyMQTT(clientID, broker, port, self)
 
-    def notify(self, topic, payload): #use senML
+    def notify(self, topic, payload):
         self.status = json.loads(payload)["status"] 
         print( f'led status: ', self.status) 
 
@@ -44,7 +44,7 @@ class LEDManager:
         pass
 
 if __name__ == "__main__":
-    led = LEDManager ('grp4_mqtt_iot_123456', 'test.mosquitto.org', 1883, 'IoT/grp4/led')
+    led = LEDSubscriber ('grp4_mqtt_iot_led', 'test.mosquitto.org', 1883, 'IoT/grp4/command/led')
     led.start()
     while True:
-        time.sleep(10)
+        time.sleep(1)

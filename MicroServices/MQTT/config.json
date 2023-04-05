@@ -1,5 +1,6 @@
 {
-  "broker":"",
+  "broker":"test.mosquitto.org",
+  "topic":"IoT/grp4/led",
   "broker_port": 1883,
   "baseUrl": "http://127.0.0.1:",
   "rest_port": 8082,
