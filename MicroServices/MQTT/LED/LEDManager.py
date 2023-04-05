@@ -32,24 +32,24 @@ class LEDManager:
         message["status"] = value #elf.statusToBool[value]
         message["timestamp"] = str(time.time())
         self.mqttClient.myPublish(self.topic, message)
-        print(f'Published {message} to {self.topic}')
+        print(f'Published =>  {message} to {self.topic}')
 
-if __name__ == "__main__":
-    # conf = json.load(open('Settings.json'))
-    broker = 'test.mosquitto.org'
-    port = 1883
-    topic = 'IoT/grp4/led'
-    ledMngr = LEDManager ('LEDManager', broker, port, topic)
-    ledMngr.mqttClient.start()
-    time.sleep(2)
-    print('Welcome to the LED Manager to switch LED ON/OFF')
-    done = False
-    print('\nType "ON" to switch the LED ON \n and "OFF" to switch the LED OFF \n and "exit" to exit the program :')
-    while not done:
-        command = input('Enter your command: ')
-        if command == 'ON' or command == 'OFF':
-            ledMngr.publish(command)
-        elif command == 'exit':
-            done = True
-        else:
-            print('Wrong command, try again')
+# if __name__ == "__main__":
+#     conf = json.load(open(currentPath+'MicroServices/MQTT/config.json'))
+#     broker = conf['broker']
+#     port = conf['broker_port']
+#     topic = conf['topic']
+#     ledMngr = LEDManager ('LEDManager', broker, port, '/IoT/grp4/command/led')
+#     ledMngr.mqttClient.start()
+#     time.sleep(2)
+#     print('Welcome to the LED Manager to switch LED ON/OFF')
+#     done = False
+#     print('\nType "ON" to switch the LED ON \n and "OFF" to switch the LED OFF \n and "exit" to exit the program :')
+#     while not done:
+#         command = input('Enter your command: ')
+#         if command == 'ON' or command == 'OFF':
+#             ledMngr.publish(command)
+#         elif command == 'exit':
+#             done = True
+#         else:
+#             print('Wrong command, try again')

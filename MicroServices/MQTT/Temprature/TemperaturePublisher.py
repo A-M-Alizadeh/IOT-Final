@@ -3,6 +3,7 @@ import json
 import time
 import os
 import sys
+import random
 """
     -------------------------------------------- Notice --------------------------------------------
     #path to parent folder
@@ -23,6 +24,7 @@ class CatalogApi:
         self.broker = response["servicesDetails"]["serviceIp"]
         self.port = 1883
         self.topic = response["servicesDetails"]["topic"][0]
+        self.clientId = response["deviceId"]+'-'+response["measureType"][0]
     
     def getBroker(self):
         return self.broker
@@ -32,6 +34,10 @@ class CatalogApi:
     
     def getTopic(self):
         return self.topic
+    
+    def getClientId(self):
+        return self.clientId
+        
 
 
 #--------------------------------------------MQTT------------------------------------------------
@@ -40,7 +46,7 @@ class TemperaturePublisher:
         self.statusToBool = {"ON": True, "OFF": False}
         self.topic = topic
         self.mqttClient = MyMQTT(clientID, broker, port, None)
-        self.__message = {"client": clientID,'n': 'switch', "status": None, "timestamp": ''}
+        self.__message = {"bn":clientID, "t": None,  "u":"Cel", "n":"temp", "v":None}
 
     def start(self):
         self.mqttClient.start()
@@ -48,10 +54,13 @@ class TemperaturePublisher:
     def stop(self):
         self.mqttClient.stop()
 
-    def publish(self, value):
+    def randomValueGenerator(self):
+        return random.randint(20, 48)
+
+    def publish(self):
         message = self.__message
-        message["status"] = value  # self.statusToBool[value]
-        message["timestamp"] = str(time.time())
+        message["v"] = self.randomValueGenerator()
+        message["t"] = str(time.time())
         self.mqttClient.myPublish(self.topic, message)
         print(f'Published {message} to {self.topic}')
 
@@ -63,13 +72,11 @@ if __name__ == "__main__":
     broker = api.getBroker()
     port = api.getPort()
     topic = api.getTopic()
-    ledMngr = TemperaturePublisher ('TemperaturePublisher', broker, port, topic)
+    clientId = api.getClientId()
+    ledMngr = TemperaturePublisher (clientId, broker, port, topic)
     ledMngr.mqttClient.start()
     time.sleep(2)
     print('Temperature Publisher started')
-    done = False
-    a = 0
-    while not done:
-            a += 1
-            ledMngr.publish(f'Temp Detail ${a}')
-            time.sleep(1)
+    while True:
+            ledMngr.publish()
+            time.sleep(10)

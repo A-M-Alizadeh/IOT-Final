@@ -12,7 +12,10 @@ import requests
 currentPath = os.getcwd()[:os.getcwd().find('/Final')+len('/Final')]+os.path.sep
 sys.path.insert(1, currentPath)
 from MicroServices.MQTT.MyMQTT import *
+from MicroServices.MQTT.LED.LEDManager import *
 
+ledMngr = LEDManager ('LEDManager', 'test.mosquitto.org', 1883, 'IoT/grp4/command/led')
+ledMngr.mqttClient.start()
 #--------------------------------------------REST API------------------------------------------------
 class CatalogApi:
     def __init__(self):
@@ -41,8 +44,8 @@ class SensorsSubscriber:
         self.mqttClient = MyMQTT(clientID, broker, port, self)
 
     def notify(self, topic, payload): #use senML
-        self.status = json.loads(payload)["status"] 
         print( f'sensor ${topic}: ${payload} recieved') 
+        ledMngr.publish('Ahaaa new Topic')
 
     def start(self):
         self.mqttClient.start()
