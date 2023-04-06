@@ -3,6 +3,7 @@ import time
 import sys
 import os
 import requests
+import joblib
 """
     -------------------------------------------- Notice --------------------------------------------
     #path to parent folder
@@ -14,6 +15,7 @@ sys.path.insert(1, currentPath)
 from MicroServices.MQTT.MyMQTT import *
 from MicroServices.MQTT.LED.LEDManager import *
 
+ml_model = joblib.load(currentPath+'ML/condition_recommender.joblib')
 ledMngr = LEDManager ('LEDManager', 'test.mosquitto.org', 1883, 'IoT/grp4/command/led')
 ledMngr.mqttClient.start()
 #--------------------------------------------REST API------------------------------------------------
@@ -44,8 +46,14 @@ class SensorsSubscriber:
         self.mqttClient = MyMQTT(clientID, broker, port, self)
 
     def notify(self, topic, payload): #use senML
-        print( f'sensor ${topic}: ${payload} recieved') 
-        ledMngr.publish('Ahaaa new Topic')
+        print( f'sensor ${topic}: ${payload} recieved')
+        if topic == 'IoT/grp4/temperature':
+            self.saveTemperture(payload)
+        elif topic == 'IoT/grp4/humidity':
+            self.saveHumidity(payload)
+
+        prediction = ml_model.predict([[20,26,25,50,-0.8,42.0,11]])     
+        ledMngr.publish('Predicted value: '+str(prediction))
 
     def start(self):
         self.mqttClient.start()
@@ -55,16 +63,24 @@ class SensorsSubscriber:
         self.mqttClient.stop()
 
     def saveTemperture(self, value):
-        pass
+        self.saver(currentPath+'MicroServices/MQTT/Storage/Temp.json', value)
 
     def saveHumidity(self, value):
-        pass
+        self.saver(currentPath+'MicroServices/MQTT/Storage/Humid.json', value)
+    
+    def saver(self, address, value):
+        with open(address, 'r') as f:
+            data = json.load(f)
+        with open(address, 'w') as f:
+            f.truncate()
+            data['readings'].append(json.loads(value))
+            f.write(json.dumps(data, indent=4))
+            f.close()
 
 
 #--------------------------------------------MAIN------------------------------------------------
 if __name__ == "__main__":
     cm = CatalogApi()
-
 
     led = SensorsSubscriber ('grp4_mqtt_iot_123456', cm.getBroker(), 1883, cm.getTopic())
     led.start()
