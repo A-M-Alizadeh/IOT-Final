@@ -55,7 +55,7 @@ class TemperaturePublisher:
         self.mqttClient.stop()
 
     def randomValueGenerator(self):
-        return random.randint(20, 48)
+        return round(random.uniform(20.0,48.0), 1)
 
     def publish(self):
         message = self.__message
