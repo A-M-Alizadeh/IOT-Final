@@ -13,11 +13,11 @@ import joblib
 currentPath = os.getcwd()[:os.getcwd().find('/Final')+len('/Final')]+os.path.sep
 sys.path.insert(1, currentPath)
 from MicroServices.MQTT.MyMQTT import *
-from MicroServices.MQTT.LED.LEDManager import *
+# from MicroServices.MQTT.LED.LEDManager import *
 
-ml_model = joblib.load(currentPath+'ML/condition_recommender.joblib')
-ledMngr = LEDManager ('LEDManager', 'test.mosquitto.org', 1883, 'IoT/grp4/command/led')
-ledMngr.mqttClient.start()
+# ml_model = joblib.load(currentPath+'ML/condition_recommender.joblib')
+# ledMngr = LEDManager ('LEDManager', 'test.mosquitto.org', 1883, 'IoT/grp4/command/led')
+# ledMngr.mqttClient.start()
 #--------------------------------------------REST API------------------------------------------------
 class CatalogApi:
     def __init__(self):
@@ -51,9 +51,13 @@ class SensorsSubscriber:
             self.saveTemperture(payload)
         elif topic == 'IoT/grp4/humidity':
             self.saveHumidity(payload)
+        # elif topic == 'IoT/grp4/command/led':
+            #recommendation system
+            #feed data is this structure: [min_temp, max_temp, min_humid, max_humid, min_light, max_light, min_co2, max_co2]
+            # prediction = ml_model.predict([[20,26,25,50,-0.8,42.0,11]])     
+            # ledMngr.publish('Predicted value: '+str(prediction))
 
-        prediction = ml_model.predict([[20,26,25,50,-0.8,42.0,11]])     
-        ledMngr.publish('Predicted value: '+str(prediction))
+
 
     def start(self):
         self.mqttClient.start()
