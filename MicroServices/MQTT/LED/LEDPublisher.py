@@ -2,7 +2,8 @@ import json
 import time
 import sys
 import os
-
+import joblib
+from datetime import datetime
 """
     -------------------------------------------- Notice --------------------------------------------
     #path to parent folder
@@ -12,9 +13,11 @@ import os
 currentPath = os.getcwd()[:os.getcwd().find('/Final')+len('/Final')]+os.path.sep
 sys.path.insert(1, currentPath)
 from MicroServices.MQTT.MyMQTT import *
+from ML.fakeDataGenerator import monthsIdealTemp, monthsIdealHumid
 
+ml_model = joblib.load(currentPath+'ML/condition_recommender.joblib')
 
-class LEDManager:
+class LEDPublisher:
     def __init__(self,clientID, broker, port, topic):
         self.statusToBool = {"ON": True, "OFF": False}
         self.topic = topic
@@ -27,9 +30,25 @@ class LEDManager:
     def stop(self):
         self.mqttClient.stop()
 
-    def publish(self, value):
+    def publish(self):
+        h_data = json.load(open(currentPath+'MicroServices/MQTT/Storage/Humid.json'))["readings"]
+        t_data = json.load(open(currentPath+'MicroServices/MQTT/Storage/Temp.json'))["readings"]
+        month = datetime.fromtimestamp(float(t_data[0]["t"])).month
+        
+        prediction = ml_model.predict([[
+            monthsIdealTemp[month-1][str(month)]["min"],
+            monthsIdealTemp[month-1][str(month)]["max"],
+            monthsIdealHumid[month-1][str(month)]["min"],
+            monthsIdealHumid[month-1][str(month)]["max"],
+            t_data[0]["v"],
+            h_data[0]["v"],
+            month
+            ]])
+            
         message = self.__message
-        message["status"] = value #elf.statusToBool[value]
+        message["status"] = int(prediction[0][2])
+        message["idealTemp"] = int(prediction[0][0])
+        message["idealHumid"] = int(prediction[0][1])
         message["timestamp"] = str(time.time())
         self.mqttClient.myPublish(self.topic, message)
         print(f'Published =>  {message} to {self.topic}')
@@ -39,17 +58,8 @@ if __name__ == "__main__":
     broker = conf['broker']
     port = conf['broker_port']
     topic = conf['topic']
-    ledMngr = LEDManager ('LEDManager', broker, port, 'IoT/grp4/command/led')
+    ledMngr = LEDPublisher ('LEDManager', broker, port, 'IoT/grp4/command/led')
     ledMngr.mqttClient.start()
-    time.sleep(2)
-    print('Welcome to the LED Manager to switch LED ON/OFF')
-    done = False
-    print('\nType "ON" to switch the LED ON \n and "OFF" to switch the LED OFF \n and "exit" to exit the program :')
-    while not done:
-        command = input('Enter your command: ')
-        if command == 'ON' or command == 'OFF':
-            ledMngr.publish(command)
-        elif command == 'exit':
-            done = True
-        else:
-            print('Wrong command, try again')
+    while True:
+            ledMngr.publish()
+            time.sleep(10)
