@@ -19,5 +19,8 @@
   "resourceCatalog" : {
     "host" : "localhost",
     "port" : 8084
+  },"AwarenessService" : {
+    "host" : "localhost",
+    "port" : 8085
   }
 }
