@@ -50,6 +50,7 @@ class LEDPublisher:
         message["idealTemp"] = int(prediction[0][0])
         message["idealHumid"] = int(prediction[0][1])
         message["timestamp"] = str(time.time())
+        message["direct"] = False
         self.mqttClient.myPublish(self.topic, message)
         print(f'Published =>  {message} to {self.topic}')
 
@@ -58,7 +59,7 @@ if __name__ == "__main__":
     broker = conf['broker']
     port = conf['broker_port']
     topic = conf['topic']
-    ledMngr = LEDPublisher ('LEDManager', broker, port, 'IoT/grp4/command/led')
+    ledMngr = LEDPublisher ('LEDPublisher', broker, port, 'IoT/grp4/command/led')
     ledMngr.mqttClient.start()
     while True:
             ledMngr.publish()

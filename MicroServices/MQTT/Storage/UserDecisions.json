@@ -1,0 +1,22 @@
+[
+    {
+        "minTemp": 19,
+        "maxTemp": 26,
+        "minHumid": 30,
+        "maxHumid": 50,
+        "currentTemp": 31,
+        "currentHumid": 34.1,
+        "currentMonth": 4,
+        "userDecision": "ON"
+    },
+    {
+        "minTemp": 19,
+        "maxTemp": 26,
+        "minHumid": 30,
+        "maxHumid": 50,
+        "currentTemp": 31,
+        "currentHumid": 34.1,
+        "currentMonth": 4,
+        "userDecision": "OFF"
+    }
+]
