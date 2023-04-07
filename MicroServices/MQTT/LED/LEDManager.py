@@ -31,6 +31,7 @@ class LEDManager:
         message = self.__message
         message["status"] = value #elf.statusToBool[value]
         message["timestamp"] = str(time.time())
+        message["direct"] = True
         self.mqttClient.myPublish(self.topic, message)
         print(f'Published =>  {message} to {self.topic}')
 
