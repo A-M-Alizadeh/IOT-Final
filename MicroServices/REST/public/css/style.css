@@ -5,6 +5,12 @@
   -webkit-filter: blur(8px); */
   background-repeat: no-repeat;
   height: 100vh;
+  margin-top: 20px;
+}
+
+.otherBody {
+  background-color: '#fafafa';
+  margin-top: 20px;
 }
 
 .navbar-header a {

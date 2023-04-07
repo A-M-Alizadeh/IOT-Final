@@ -5,7 +5,7 @@
     "usersList": [
         {
             "username": "Kevin Hart",
-            "houseId": "beb8b92c-cdc2-11ed-809d-ae52d2a871b1",
+            "houseId": "4ecca210-d581-11ed-a35f-ae52d2a871b0",
             "userId": "bd12dc64-ccc9-11ed-8c45-ae52d2a871b1",
             "chatId": "bd12dd36-ccc9-11ed-8c45-ae52d2a871b1"
         },
@@ -26,6 +26,12 @@
             "houseId": "4438ce28-cccb-11ed-91d1-ae52d2a871b1",
             "userId": "4438cdd8-cccb-11ed-91d1-ae52d2a871b1",
             "chatId": "4438ce00-cccb-11ed-91d1-ae52d2a871b1"
+        },
+        {
+            "username": "new User",
+            "houseId": "",
+            "userId": "e88ce9a2-d575-11ed-ba79-ae52d2a871b0",
+            "chatId": "e88cf3ac-d575-11ed-ba79-ae52d2a871b0"
         }
     ],
     "houses": [
@@ -161,6 +167,53 @@
             ],
             "userId": "bd12dc64-ccc9-11ed-8c45-ae52d2a871b1",
             "houseId": "beb8b92c-cdc2-11ed-809d-ae52d2a871b1"
+        },
+        {
+            "houseName": "post House 2",
+            "devicesList": [
+                {
+                    "deviceId": "5f1c767c-d581-11ed-a4de-ae52d2a871b0",
+                    "deviceName": "Post Device 2",
+                    "measureType": [
+                        "Temperature",
+                        "Humidity"
+                    ],
+                    "availableServices": [
+                        "MQTT"
+                    ],
+                    "servicesDetails": {
+                        "serviceType": "MQTT",
+                        "serviceIp": "mqtt.mosquitto.org",
+                        "servicePort": 1883,
+                        "topic": [
+                            "mySmarthome/temp/1",
+                            "mySmartfactory/humid/1"
+                        ]
+                    }
+                },
+                {
+                    "deviceId": "b5d3b37c-d581-11ed-a4de-ae52d2a871b0",
+                    "deviceName": "Post Device 2",
+                    "measureType": [
+                        "Temperature",
+                        "Humidity"
+                    ],
+                    "availableServices": [
+                        "MQTT"
+                    ],
+                    "servicesDetails": {
+                        "serviceType": "MQTT",
+                        "serviceIp": "mqtt.mosquitto.org",
+                        "servicePort": 1883,
+                        "topic": [
+                            "mySmarthome/temp/1",
+                            "mySmartfactory/humid/1"
+                        ]
+                    }
+                }
+            ],
+            "userId": "bd12dc64-ccc9-11ed-8c45-ae52d2a871b1",
+            "houseId": "4ecca210-d581-11ed-a35f-ae52d2a871b0"
         }
     ]
 }
