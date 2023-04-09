@@ -42,12 +42,104 @@
     </nav>
 
     <div class="page-heading">
-        <label>House Form</label>
+        <label class="pageTitle">House Form</label>
     </div>
-    <span> To Be Implemented ...</span>
 
+    <script>
+        let measure = "";
+        let services = "";
+        let type = "";
+        function handleChange(e, value, id) {
+            let innerText = e.target[e.target.options.selectedIndex].innerText;
+            console.log(innerText, id);
+            if (id == 1) {
+                measure = innerText;
+            } else if (id == 2) {
+                services = innerText;
+            } else {
+                type = innerText;
+            }
+        }
+        function addHouse() {
+            event.preventDefault();
+            usernameField = document.getElementById('houseName').value;
+            houseIdField = document.getElementById('userId').value;
+            deviceNameField = document.getElementById('deviceName').value;
+            ipField = document.getElementById('ip').value;
+            topicField = document.getElementById('topic').value;
+            // const data = {{},userId}
+
+            console.log(usernameField, houseIdField, deviceNameField, measure, services, type, ipField);
+
+            // var xmlhttp = new XMLHttpRequest();   // new HttpRequest instance 
+            // var theUrl = "http://127.0.0.1:8081/house";
+            // xmlhttp.open("POST", theUrl);
+            // xmlhttp.send(JSON.stringify(
+            //     {
+            //         username: usernameField,
+            //         houseId: houseIdField
+            //     }
+            // ));
+            // xhttp.onreadystatechange = function (resp) {
+            //     if (this.readyState == 4 && this.status == 200) {
+            //         console.log("Success", resp);
+            //     }
+            // };
+        };
+    </script>
+
+
+    <div class="d-flex justify-content-center">
+        <div class="col-md-4 style="background-color: rebeccapurple;">
+            <form class="form-group mb-3" onsubmit="return false">
+                <div class="mb-3 row mx-auto">
+                    <label for="houseName" class="form-label">House Name</label>
+                    <input type="text" class="form-control" id="houseName" aria-describedby="emailHelp">
+                </div>
+                <div class="mb-3 row mx-auto">
+                    <label for="userId" class="form-label">User Id</label>
+                    <input type="text" class="form-control" id="userId">
+                </div>
+                <div class="mb-3 row mx-auto">
+                    <label for="deviceName" class="form-label">Device Name</label>
+                    <input type="text" class="form-control" id="deviceName">
+                </div>
+                <div class="mb-3 row mx-auto">
+                    <select class="form-select" aria-label="Default select example" id="measure" onchange="handleChange(event, this.value,1)">
+                        <option selected>Measure Type</option>
+                        <option value="1">Temperature</option>
+                        <option value="2">Humidity</option>
+                    </select>
+                </div>
+                <div class="mb-3 row mx-auto">
+                    <select class="form-select" aria-label="Default select example" id="services" onchange="handleChange(event, this.value, 2)">
+                        <option selected>Available Services</option>
+                        <option value="1">REST</option>
+                        <option value="2">MQTT</option>
+                    </select>
+                </div>
+                <div class="mb-3 row mx-auto">
+                    <select class="form-select" aria-label="Default select example" id="type" onchange="handleChange(event, this.value,3)">
+                        <option selected>Service Type</option>
+                        <option value="1">REST</option>
+                        <option value="2">MQTT</option>
+                    </select>
+                </div>
+                <div class="mb-3 row mx-auto">
+                    <label for="ip" class="form-label">Service IP</label>
+                    <input type="text" class="form-control" id="ip" aria-describedby="emailHelp">
+                </div>
+                <div class="mb-3 row mx-auto">
+                    <label for="topic" class="form-label">Topic</label>
+                    <input type="text" class="form-control" id="topic" aria-describedby="emailHelp">
+                </div>
+
+                <button type="button" onclick="addHouse()" class="btn btn-primary mx-auto" id="houseFormBtn">Submit</button>
+            </form>
+        </div>
+    </div>
+    
     <script type="text/javascript" src="/static/js/utils.js"/>
-
 
 </body>
 

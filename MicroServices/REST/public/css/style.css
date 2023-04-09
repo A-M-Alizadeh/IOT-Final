@@ -34,7 +34,7 @@ li a:hover {
   text-align: center;
 }
 
-label {
+.pageTitle {
   font-weight: bold;
   font-size: 36px;
   margin: 30px;

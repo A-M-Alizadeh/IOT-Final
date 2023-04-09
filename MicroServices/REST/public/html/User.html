@@ -42,12 +42,53 @@
     </nav>
 
     <div class="page-heading">
-        <label>User Form</label>
+        <label class="pageTitle">User Form</label>
     </div>
 
-    <span> To Be Implemented ...</span>
+    <script>
+        function addUser() {
+            event.preventDefault();
+            usernameField = document.getElementById('username').value;
+            houseIdField = document.getElementById('houseId').value;
 
-    <script type="text/javascript" src="/static/js/utils.js"/>
+            var xmlhttp = new XMLHttpRequest();   // new HttpRequest instance 
+            var theUrl = "http://127.0.0.1:8080/user";
+            xmlhttp.open("POST", theUrl);
+            xmlhttp.send(JSON.stringify(
+                {
+                    username: usernameField,
+                    houseId: houseIdField
+                }
+            ));
+            xhttp.onreadystatechange = function (resp) {
+                if (this.readyState == 4 && this.status == 200) {
+                    console.log("Success", resp);
+                }
+            };
+        };
+    </script>
+
+    <div class="d-flex justify-content-center">
+        <div class="col-md-4 style=" background-color: rebeccapurple;">
+            <form class="form-group mb-3" id="form" onsubmit="return false">
+                <div class="mb-3 row mx-auto">
+                    <label for="username" class="form-label">Username</label>
+                    <input type="text" class="form-control" id="username" aria-describedby="emailHelp">
+                </div>
+                <div class="mb-3 row  mx-auto">
+                    <label for="houseId" class="form-label">House Id</label>
+                    <input type="text" class="form-control" id="houseId">
+                </div>
+
+                <button type="button" onclick="addUser()" class="btn btn-primary mx-auto"
+                    id="userFormBtn">Submit</button>
+            </form>
+        </div>
+    </div>
+
+
+    <script type="text/javascript" src="/static/js/utils.js" />
+
 
 
 </body>
