@@ -4,6 +4,7 @@ import sys
 import os
 import joblib
 from datetime import datetime
+import requests
 """
     -------------------------------------------- Notice --------------------------------------------
     #path to parent folder
@@ -53,6 +54,12 @@ class LEDPublisher:
         message["direct"] = False
         self.mqttClient.myPublish(self.topic, message)
         print(f'Published =>  {message} to {self.topic}')
+        #--------------------------------------------REST API------------------------------------------------
+        readings = {"api_key": "A4K0Q4HTP2BZ3HLJ", "field1": str(t_data[0]["v"]), "field2": str(h_data[0]["v"])}
+        url = "https://api.thingspeak.com/update.json"
+        request_headers = {"Content-Type": "application/json"}
+        resp = requests.post(url, readings, request_headers)
+        print(f'----------------- Published {readings} to ThingSpeak')
 
 if __name__ == "__main__":
     conf = json.load(open(currentPath+'MicroServices/MQTT/config.json'))
@@ -63,4 +70,4 @@ if __name__ == "__main__":
     ledMngr.mqttClient.start()
     while True:
             ledMngr.publish()
-            time.sleep(10)
+            time.sleep(30)

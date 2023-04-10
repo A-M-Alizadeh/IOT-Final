@@ -4,6 +4,7 @@ import sys
 import os
 import requests
 import joblib
+import requests
 """
     -------------------------------------------- Notice --------------------------------------------
     #path to parent folder
@@ -47,6 +48,7 @@ class SensorsSubscriber:
 
     def notify(self, topic, payload): #use senML
         print( f'sensor ${topic}: ${payload} recieved')
+        print('--------------------------------------------', json.loads(payload)["v"])
         if topic == 'IoT/grp4/temperature':
             self.saveTemperture(payload)
         elif topic == 'IoT/grp4/humidity':
@@ -75,9 +77,11 @@ class SensorsSubscriber:
     def saver(self, address, value):
         with open(address, 'r') as f:
             data = json.load(f)
+            f.close()
         with open(address, 'w') as f:
             f.truncate()
-            data['readings'].append(json.loads(value))
+            data['readings'].insert(0, json.loads(value))
+            
             f.write(json.dumps(data, indent=4))
             f.close()
 

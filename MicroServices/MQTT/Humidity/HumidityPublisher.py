@@ -4,6 +4,7 @@ import time
 import os
 import sys
 import random
+import requests
 """
     -------------------------------------------- Notice --------------------------------------------
     #path to parent folder
@@ -62,6 +63,13 @@ class HumidityPublisher:
         message["t"] = str(time.time())
         self.mqttClient.myPublish(self.topic, message)
         print(f'Published {message} to {self.topic}')
+        #--------------------------------------------REST API------------------------------------------------
+        # readings = {"api_key": "A4K0Q4HTP2BZ3HLJ", "field1": None,"field2": str(message["v"])}
+        # url = "https://api.thingspeak.com/update.json"
+        # request_headers = {"Content-Type": "application/json"}
+        # resp = requests.post(url, readings, request_headers)
+        # print(f'Published {message} to ThingSpeak')
+        # print("Waiting...", json.loads(resp.text))
 
 
 
