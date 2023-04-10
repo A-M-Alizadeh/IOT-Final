@@ -18,5 +18,15 @@
         "currentHumid": 34.1,
         "currentMonth": 4,
         "userDecision": "OFF"
+    },
+    {
+        "minTemp": 19,
+        "maxTemp": 26,
+        "minHumid": 30,
+        "maxHumid": 50,
+        "currentTemp": 47.9,
+        "currentHumid": 20.3,
+        "currentMonth": 4,
+        "userDecision": "ON"
     }
 ]

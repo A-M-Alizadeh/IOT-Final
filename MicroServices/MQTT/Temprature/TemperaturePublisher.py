@@ -4,6 +4,7 @@ import time
 import os
 import sys
 import random
+import requests
 """
     -------------------------------------------- Notice --------------------------------------------
     #path to parent folder
@@ -63,6 +64,13 @@ class TemperaturePublisher:
         message["t"] = str(time.time())
         self.mqttClient.myPublish(self.topic, message)
         print(f'Published {message} to {self.topic}')
+        #--------------------------------------------REST API------------------------------------------------
+        # readings = {"api_key": "A4K0Q4HTP2BZ3HLJ", "field1": str(message["v"]), "field2": None}
+        # url = "https://api.thingspeak.com/update.json"
+        # request_headers = {"Content-Type": "application/json"}
+        # resp = requests.post(url, readings, request_headers)
+        # print(f'Published {message} to ThingSpeak')
+        # print("Waiting...", json.loads(resp.text))
 
 
 
@@ -73,10 +81,10 @@ if __name__ == "__main__":
     port = api.getPort()
     topic = api.getTopic()
     clientId = api.getClientId()
-    ledMngr = TemperaturePublisher (clientId, broker, port, topic)
-    ledMngr.mqttClient.start()
+    tempPub = TemperaturePublisher (clientId, broker, port, topic)
+    tempPub.mqttClient.start()
     time.sleep(2)
     print('Temperature Publisher started')
     while True:
-            ledMngr.publish()
+            tempPub.publish()
             time.sleep(10)
