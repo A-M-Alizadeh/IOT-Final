@@ -2,6 +2,104 @@
     "readings": [
         {
             "bn": "dec7f33e-cdc4-11ed-9ce9-ae52d2a871b1-Temperature",
+            "t": "1681157969.870871",
+            "u": "Cel",
+            "n": "temp",
+            "v": 42.0
+        },
+        {
+            "bn": "dec7f33e-cdc4-11ed-9ce9-ae52d2a871b1-Temperature",
+            "t": "1681157959.8701482",
+            "u": "Cel",
+            "n": "temp",
+            "v": 44.0
+        },
+        {
+            "bn": "dec7f33e-cdc4-11ed-9ce9-ae52d2a871b1-Temperature",
+            "t": "1681157949.8664162",
+            "u": "Cel",
+            "n": "temp",
+            "v": 34.3
+        },
+        {
+            "bn": "dec7f33e-cdc4-11ed-9ce9-ae52d2a871b1-Temperature",
+            "t": "1681157939.859984",
+            "u": "Cel",
+            "n": "temp",
+            "v": 45.9
+        },
+        {
+            "bn": "dec7f33e-cdc4-11ed-9ce9-ae52d2a871b1-Temperature",
+            "t": "1681157929.8585558",
+            "u": "Cel",
+            "n": "temp",
+            "v": 34.2
+        },
+        {
+            "bn": "dec7f33e-cdc4-11ed-9ce9-ae52d2a871b1-Temperature",
+            "t": "1681157919.851879",
+            "u": "Cel",
+            "n": "temp",
+            "v": 43.6
+        },
+        {
+            "bn": "dec7f33e-cdc4-11ed-9ce9-ae52d2a871b1-Temperature",
+            "t": "1681157909.8455548",
+            "u": "Cel",
+            "n": "temp",
+            "v": 48.0
+        },
+        {
+            "bn": "dec7f33e-cdc4-11ed-9ce9-ae52d2a871b1-Temperature",
+            "t": "1681157899.8383842",
+            "u": "Cel",
+            "n": "temp",
+            "v": 24.2
+        },
+        {
+            "bn": "dec7f33e-cdc4-11ed-9ce9-ae52d2a871b1-Temperature",
+            "t": "1681157889.832557",
+            "u": "Cel",
+            "n": "temp",
+            "v": 35.0
+        },
+        {
+            "bn": "dec7f33e-cdc4-11ed-9ce9-ae52d2a871b1-Temperature",
+            "t": "1681157879.826293",
+            "u": "Cel",
+            "n": "temp",
+            "v": 33.8
+        },
+        {
+            "bn": "dec7f33e-cdc4-11ed-9ce9-ae52d2a871b1-Temperature",
+            "t": "1681157869.8207412",
+            "u": "Cel",
+            "n": "temp",
+            "v": 30.5
+        },
+        {
+            "bn": "dec7f33e-cdc4-11ed-9ce9-ae52d2a871b1-Temperature",
+            "t": "1681157639.562227",
+            "u": "Cel",
+            "n": "temp",
+            "v": 47.7
+        },
+        {
+            "bn": "dec7f33e-cdc4-11ed-9ce9-ae52d2a871b1-Temperature",
+            "t": "1681157629.556878",
+            "u": "Cel",
+            "n": "temp",
+            "v": 36.3
+        },
+        {
+            "bn": "dec7f33e-cdc4-11ed-9ce9-ae52d2a871b1-Temperature",
+            "t": "1681157205.400476",
+            "u": "Cel",
+            "n": "temp",
+            "v": 34.1
+        },
+        {
+            "bn": "dec7f33e-cdc4-11ed-9ce9-ae52d2a871b1-Temperature",
             "t": "1681144058.300264",
             "u": "Cel",
             "n": "temp",

@@ -2,6 +2,314 @@
     "readings": [
         {
             "bn": "1562dc98-cdc4-11ed-bed4-ae52d2a871b1-Humidity",
+            "t": "1681157969.5646331",
+            "bu": "%RH",
+            "n": "temp",
+            "v": 37.8
+        },
+        {
+            "bn": "1562dc98-cdc4-11ed-bed4-ae52d2a871b1-Humidity",
+            "t": "1681157959.561703",
+            "bu": "%RH",
+            "n": "temp",
+            "v": 25.7
+        },
+        {
+            "bn": "1562dc98-cdc4-11ed-bed4-ae52d2a871b1-Humidity",
+            "t": "1681157949.560183",
+            "bu": "%RH",
+            "n": "temp",
+            "v": 35.1
+        },
+        {
+            "bn": "1562dc98-cdc4-11ed-bed4-ae52d2a871b1-Humidity",
+            "t": "1681157939.5544572",
+            "bu": "%RH",
+            "n": "temp",
+            "v": 32.8
+        },
+        {
+            "bn": "1562dc98-cdc4-11ed-bed4-ae52d2a871b1-Humidity",
+            "t": "1681157929.549231",
+            "bu": "%RH",
+            "n": "temp",
+            "v": 21.3
+        },
+        {
+            "bn": "1562dc98-cdc4-11ed-bed4-ae52d2a871b1-Humidity",
+            "t": "1681157919.542513",
+            "bu": "%RH",
+            "n": "temp",
+            "v": 28.4
+        },
+        {
+            "bn": "1562dc98-cdc4-11ed-bed4-ae52d2a871b1-Humidity",
+            "t": "1681157909.536972",
+            "bu": "%RH",
+            "n": "temp",
+            "v": 36.0
+        },
+        {
+            "bn": "1562dc98-cdc4-11ed-bed4-ae52d2a871b1-Humidity",
+            "t": "1681157899.530841",
+            "bu": "%RH",
+            "n": "temp",
+            "v": 25.7
+        },
+        {
+            "bn": "1562dc98-cdc4-11ed-bed4-ae52d2a871b1-Humidity",
+            "t": "1681157889.52416",
+            "bu": "%RH",
+            "n": "temp",
+            "v": 24.7
+        },
+        {
+            "bn": "1562dc98-cdc4-11ed-bed4-ae52d2a871b1-Humidity",
+            "t": "1681157879.5181398",
+            "bu": "%RH",
+            "n": "temp",
+            "v": 30.9
+        },
+        {
+            "bn": "1562dc98-cdc4-11ed-bed4-ae52d2a871b1-Humidity",
+            "t": "1681157869.512171",
+            "bu": "%RH",
+            "n": "temp",
+            "v": 21.2
+        },
+        {
+            "bn": "1562dc98-cdc4-11ed-bed4-ae52d2a871b1-Humidity",
+            "t": "1681157649.374828",
+            "bu": "%RH",
+            "n": "temp",
+            "v": 31.7
+        },
+        {
+            "bn": "1562dc98-cdc4-11ed-bed4-ae52d2a871b1-Humidity",
+            "t": "1681157639.369149",
+            "bu": "%RH",
+            "n": "temp",
+            "v": 20.1
+        },
+        {
+            "bn": "1562dc98-cdc4-11ed-bed4-ae52d2a871b1-Humidity",
+            "t": "1681157629.363424",
+            "bu": "%RH",
+            "n": "temp",
+            "v": 26.8
+        },
+        {
+            "bn": "1562dc98-cdc4-11ed-bed4-ae52d2a871b1-Humidity",
+            "t": "1681157556.031917",
+            "bu": "%RH",
+            "n": "temp",
+            "v": 29.7
+        },
+        {
+            "bn": "1562dc98-cdc4-11ed-bed4-ae52d2a871b1-Humidity",
+            "t": "1681157546.026125",
+            "bu": "%RH",
+            "n": "temp",
+            "v": 35.9
+        },
+        {
+            "bn": "1562dc98-cdc4-11ed-bed4-ae52d2a871b1-Humidity",
+            "t": "1681157536.0200372",
+            "bu": "%RH",
+            "n": "temp",
+            "v": 32.6
+        },
+        {
+            "bn": "1562dc98-cdc4-11ed-bed4-ae52d2a871b1-Humidity",
+            "t": "1681157526.013765",
+            "bu": "%RH",
+            "n": "temp",
+            "v": 24.9
+        },
+        {
+            "bn": "1562dc98-cdc4-11ed-bed4-ae52d2a871b1-Humidity",
+            "t": "1681157516.0079901",
+            "bu": "%RH",
+            "n": "temp",
+            "v": 37.6
+        },
+        {
+            "bn": "1562dc98-cdc4-11ed-bed4-ae52d2a871b1-Humidity",
+            "t": "1681157474.0980859",
+            "bu": "%RH",
+            "n": "temp",
+            "v": 26.2
+        },
+        {
+            "bn": "1562dc98-cdc4-11ed-bed4-ae52d2a871b1-Humidity",
+            "t": "1681157464.0961092",
+            "bu": "%RH",
+            "n": "temp",
+            "v": 22.3
+        },
+        {
+            "bn": "1562dc98-cdc4-11ed-bed4-ae52d2a871b1-Humidity",
+            "t": "1681157454.089076",
+            "bu": "%RH",
+            "n": "temp",
+            "v": 32.7
+        },
+        {
+            "bn": "1562dc98-cdc4-11ed-bed4-ae52d2a871b1-Humidity",
+            "t": "1681157444.083185",
+            "bu": "%RH",
+            "n": "temp",
+            "v": 38.0
+        },
+        {
+            "bn": "1562dc98-cdc4-11ed-bed4-ae52d2a871b1-Humidity",
+            "t": "1681157434.080205",
+            "bu": "%RH",
+            "n": "temp",
+            "v": 31.8
+        },
+        {
+            "bn": "1562dc98-cdc4-11ed-bed4-ae52d2a871b1-Humidity",
+            "t": "1681157424.074451",
+            "bu": "%RH",
+            "n": "temp",
+            "v": 35.1
+        },
+        {
+            "bn": "1562dc98-cdc4-11ed-bed4-ae52d2a871b1-Humidity",
+            "t": "1681157254.5593972",
+            "bu": "%RH",
+            "n": "temp",
+            "v": 26.5
+        },
+        {
+            "bn": "1562dc98-cdc4-11ed-bed4-ae52d2a871b1-Humidity",
+            "t": "1681157244.5559192",
+            "bu": "%RH",
+            "n": "temp",
+            "v": 33.3
+        },
+        {
+            "bn": "1562dc98-cdc4-11ed-bed4-ae52d2a871b1-Humidity",
+            "t": "1681157234.5512252",
+            "bu": "%RH",
+            "n": "temp",
+            "v": 22.3
+        },
+        {
+            "bn": "1562dc98-cdc4-11ed-bed4-ae52d2a871b1-Humidity",
+            "t": "1681157224.545412",
+            "bu": "%RH",
+            "n": "temp",
+            "v": 39.8
+        },
+        {
+            "bn": "1562dc98-cdc4-11ed-bed4-ae52d2a871b1-Humidity",
+            "t": "1681157214.543342",
+            "bu": "%RH",
+            "n": "temp",
+            "v": 22.8
+        },
+        {
+            "bn": "1562dc98-cdc4-11ed-bed4-ae52d2a871b1-Humidity",
+            "t": "1681157204.539629",
+            "bu": "%RH",
+            "n": "temp",
+            "v": 28.9
+        },
+        {
+            "bn": "1562dc98-cdc4-11ed-bed4-ae52d2a871b1-Humidity",
+            "t": "1681157194.534409",
+            "bu": "%RH",
+            "n": "temp",
+            "v": 33.7
+        },
+        {
+            "bn": "1562dc98-cdc4-11ed-bed4-ae52d2a871b1-Humidity",
+            "t": "1681157184.532217",
+            "bu": "%RH",
+            "n": "temp",
+            "v": 24.2
+        },
+        {
+            "bn": "1562dc98-cdc4-11ed-bed4-ae52d2a871b1-Humidity",
+            "t": "1681157174.5264692",
+            "bu": "%RH",
+            "n": "temp",
+            "v": 21.7
+        },
+        {
+            "bn": "1562dc98-cdc4-11ed-bed4-ae52d2a871b1-Humidity",
+            "t": "1681157164.525859",
+            "bu": "%RH",
+            "n": "temp",
+            "v": 29.5
+        },
+        {
+            "bn": "1562dc98-cdc4-11ed-bed4-ae52d2a871b1-Humidity",
+            "t": "1681157154.5240178",
+            "bu": "%RH",
+            "n": "temp",
+            "v": 31.8
+        },
+        {
+            "bn": "1562dc98-cdc4-11ed-bed4-ae52d2a871b1-Humidity",
+            "t": "1681157144.520237",
+            "bu": "%RH",
+            "n": "temp",
+            "v": 26.8
+        },
+        {
+            "bn": "1562dc98-cdc4-11ed-bed4-ae52d2a871b1-Humidity",
+            "t": "1681157134.5162408",
+            "bu": "%RH",
+            "n": "temp",
+            "v": 38.4
+        },
+        {
+            "bn": "1562dc98-cdc4-11ed-bed4-ae52d2a871b1-Humidity",
+            "t": "1681157124.509844",
+            "bu": "%RH",
+            "n": "temp",
+            "v": 37.0
+        },
+        {
+            "bn": "1562dc98-cdc4-11ed-bed4-ae52d2a871b1-Humidity",
+            "t": "1681157114.50647",
+            "bu": "%RH",
+            "n": "temp",
+            "v": 22.4
+        },
+        {
+            "bn": "1562dc98-cdc4-11ed-bed4-ae52d2a871b1-Humidity",
+            "t": "1681157104.5031328",
+            "bu": "%RH",
+            "n": "temp",
+            "v": 32.2
+        },
+        {
+            "bn": "1562dc98-cdc4-11ed-bed4-ae52d2a871b1-Humidity",
+            "t": "1681157094.500055",
+            "bu": "%RH",
+            "n": "temp",
+            "v": 35.7
+        },
+        {
+            "bn": "1562dc98-cdc4-11ed-bed4-ae52d2a871b1-Humidity",
+            "t": "1681157084.494154",
+            "bu": "%RH",
+            "n": "temp",
+            "v": 32.6
+        },
+        {
+            "bn": "1562dc98-cdc4-11ed-bed4-ae52d2a871b1-Humidity",
+            "t": "1681157074.493284",
+            "bu": "%RH",
+            "n": "temp",
+            "v": 26.1
+        },
+        {
+            "bn": "1562dc98-cdc4-11ed-bed4-ae52d2a871b1-Humidity",
             "t": "1681144056.974066",
             "bu": "%RH",
             "n": "temp",
